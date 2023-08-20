@@ -5,10 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Biome")]
 public class Biome : ScriptableObject
 {
-    public GameObject stone;
-    public GameObject[] commonOres;  
-    public GameObject[] RareOres;
-    public GameObject[] UniqueOres;
-
-
+    public string biomeName;
+    public Tile rockTile;
+    public Tile[] commonOreTiles;
+    public Tile[] rareOreTiles;
+    public Tile[] uniqueOreTiles;
 }
