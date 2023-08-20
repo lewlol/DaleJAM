@@ -13,6 +13,10 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private bool isGrounded;
 
+    public Transform playerCenter; // Empty GameObject at the center of the player
+    public GameObject pickaxe; // The pickaxe GameObject
+
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -29,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
+
+        pickaxerotation();
     }
 
     private void FixedUpdate()
@@ -37,14 +43,26 @@ public class PlayerMovement : MonoBehaviour
         float moveDirection = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveDirection * moveSpeed, rb.velocity.y);
 
-        // Flipping the sprite
-        if (moveDirection > 0)
+      
+    }
+    void pickaxerotation()
+    {
         {
-            spriteRenderer.flipX = false;
-        }
-        else if (moveDirection < 0)
-        {
-            spriteRenderer.flipX = true;
+            // Calculate the angle between playerCenter and mouse position
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 direction = mousePos - playerCenter.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+            // Rotate the playerCenter (and the attached pickaxe)
+            playerCenter.rotation = Quaternion.Euler(0f, 0f, angle);
+
+            // Flip player sprite
+            if (mousePos.x < playerCenter.position.x)
+                GetComponent<SpriteRenderer>().flipX = true;
+            else
+                GetComponent<SpriteRenderer>().flipX = false;
+
+          
         }
     }
 }
