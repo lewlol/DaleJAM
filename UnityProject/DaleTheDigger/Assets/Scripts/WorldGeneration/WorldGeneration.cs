@@ -28,7 +28,19 @@ public class WorldGeneration : MonoBehaviour
             {
                 //Check y Level
                 //Compare to Biome Level (if above minimum and below max)
-
+                int num = Random.Range(0, 11);
+                if(num <= 7)
+                {
+                    //Stone
+                }
+                if(num > 7 && num <= 9)
+                {
+                    //Common Ore
+                }
+                if(num > 9 && num <= 10)
+                {
+                    //Rare Ore
+                }
                 spawnPosition = new Vector3(x, -y, 0);
             }
         }
@@ -36,7 +48,7 @@ public class WorldGeneration : MonoBehaviour
 
     public void SpawnTile()
     {
-        GameObject newTile = Instantiate(activeBiome.stone, spawnPosition, Quaternion.identity);
+        GameObject newTile = Instantiate(gameObject, spawnPosition, Quaternion.identity);
         newTile.transform.parent = gameObject.transform;
         newTile.name = "World Tile " + currentTile;
         currentTile++;
