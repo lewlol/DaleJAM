@@ -3221,6 +3221,9 @@ MonoBehaviour:
   fortuneleveltext: {fileID: 1714850485}
   pickaxeleveltext: {fileID: 385247674}
   coins: {fileID: 318288083}
+  staminacosttext: {fileID: 728213234}
+  fortunecosttext: {fileID: 965371487}
+  pickaxecosttext: {fileID: 1205955349}
 --- !u!61 &2116277765
 BoxCollider2D:
   m_ObjectHideFlags: 0

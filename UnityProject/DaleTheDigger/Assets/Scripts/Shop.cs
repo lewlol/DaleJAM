@@ -24,6 +24,9 @@ public class Shop : MonoBehaviour
     public TextMeshProUGUI fortuneleveltext;
     public TextMeshProUGUI pickaxeleveltext;
     public TextMeshProUGUI coins;
+    public TextMeshProUGUI staminacosttext;
+    public TextMeshProUGUI fortunecosttext;
+    public TextMeshProUGUI pickaxecosttext;
 
 
 
@@ -76,6 +79,9 @@ public class Shop : MonoBehaviour
 
     void shopstats()
     {
+        pickaxecosttext.text = pickaxecost + " Coins";
+        staminacosttext.text = staminacost + " Coins";
+        fortunecosttext.text = fortunecost + " Coins";
 
 
 
