@@ -9,12 +9,23 @@ public class Shop : MonoBehaviour
     public GameObject ShopPrompt;
 
     public int staminalevel;
+    public int staminacost = 50;
+
     public int fortunelevel;
+    public int fortunecost = 50;
+
     public int pickaxelevel;
+    public int pickaxecost = 500;
+
+
+
 
     public TextMeshProUGUI staminaleveltext;
     public TextMeshProUGUI fortuneleveltext;
     public TextMeshProUGUI pickaxeleveltext;
+    public TextMeshProUGUI coins;
+
+
 
 
 
@@ -65,27 +76,50 @@ public class Shop : MonoBehaviour
 
     void shopstats()
     {
+
+
+
         staminaleveltext.text = "Level: " + staminalevel;
         pickaxeleveltext.text = "Level: " + pickaxelevel;
         fortuneleveltext.text = "Level: " + fortunelevel;
+        coins.text = "Coins: " + PlayerMovement.coins;
     }
 
     public void staminabutton()
     {
-        staminalevel++;
-        PlayerMovement.stamina += 5;
+        if (PlayerMovement.coins >= staminacost)
+        {
+            PlayerMovement.coins -= staminacost;
+            staminalevel++;
+            PlayerMovement.stamina += 5;
+            staminacost += 20;
+        }
+        
     }
 
     public void fortunebutton()
     {
-        fortunelevel++;
-        PlayerMovement.fortune += 5;
+        if(PlayerMovement.coins >= fortunecost)
+        {
+            PlayerMovement.coins-= fortunecost;
+            fortunelevel++;
+            PlayerMovement.fortune += 5;
+            fortunecost += 20;
+        }
+
+        
     }
 
     public void breakingbutton()
     {
-        pickaxelevel++;
-        PlayerMovement.breakingpower += 1;
+        if(PlayerMovement.coins >= pickaxecost)
+        {
+            PlayerMovement.coins -= pickaxecost;
+            pickaxelevel++;
+            PlayerMovement.breakingpower += 1;
+            pickaxecost += 500;
+        }
+       
     }
 
 

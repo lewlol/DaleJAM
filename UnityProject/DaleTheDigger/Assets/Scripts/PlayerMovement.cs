@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject pickaxe; // The pickaxe GameObject
 
     //Upgrades and shit
-    public static int coins = 100; //used for upgrades
+    public static int coins = 1000; //used for upgrades
     public static int breakingpower = 1; // determins what blocks player can break, each level changes pickaxe sprite too
     public static int stamina = 50; //each block broke loses stamina 
     public static int fortune = 1; //chance to get mroe ores from mining
@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     {
         jumping();
         pickaxerotation();
-        Debug.Log(breakingpower);
+       
     }
 
     private void FixedUpdate()
