@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //movement shit
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
     public Transform groundCheck;
     public LayerMask groundLayer;
-
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private bool isGrounded;
 
+    //pickaxe and sprite rotation
     public Transform playerCenter; // Empty GameObject at the center of the player
     public GameObject pickaxe; // The pickaxe GameObject
+
+    //Upgrades and shit
+    public int coins = 100; //used for upgrades
+    public int breakingpower = 1; // determins what blocks player can break, each level changes pickaxe sprite too
+    public int stamina = 50; //each block broke loses stamina 
+    public int fortune = 1; //chance to get mroe ores from mining
 
 
     private void Awake()
@@ -25,25 +32,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        // Check if the character is grounded
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
-
-        // Jumping
-        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        }
-
+        jumping();
         pickaxerotation();
     }
 
     private void FixedUpdate()
     {
-        // Movement
-        float moveDirection = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(moveDirection * moveSpeed, rb.velocity.y);
+        movement();
 
-      
+
     }
     void pickaxerotation()
     {
@@ -62,7 +59,27 @@ public class PlayerMovement : MonoBehaviour
             else
                 GetComponent<SpriteRenderer>().flipX = false;
 
-          
+
         }
     }
+
+    void jumping()
+    {
+        // Check if the character is grounded
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
+
+        // Jumping
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+    }
+
+    void movement()
+    {
+        // Movement
+        float moveDirection = Input.GetAxis("Horizontal");
+        rb.velocity = new Vector2(moveDirection * moveSpeed, rb.velocity.y);
+    }
+
 }
