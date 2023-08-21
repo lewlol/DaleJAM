@@ -118,5 +118,26 @@ public class MiningScript : MonoBehaviour
     private void BlockStats(RaycastHit2D hit)
     {
         TileDataPlaceholder tdp = hit.collider.gameObject.GetComponent<TileDataPlaceholder>();
+        Inventory.Totalcoins += tdp.thisTile.coinWorth;
+
+        if(tdp.thisTile.tileType == TileTypes.Rock)
+        {
+            Inventory.Rocks++;
+            Inventory.Rockcoins+= tdp.thisTile.coinWorth;
+        }
+        else if(tdp.thisTile.tileType == TileTypes.Ore)
+        {
+            Inventory.Ores++;
+            Inventory.Orescoins+= tdp.thisTile.coinWorth;
+        }
+        else if (tdp.thisTile.tileType == TileTypes.Gemstone)
+        {
+            Inventory.Gemstones++;
+            Inventory.Gemstonecoins += tdp.thisTile.coinWorth;
+        }
+       
+
+
+
     }
 }

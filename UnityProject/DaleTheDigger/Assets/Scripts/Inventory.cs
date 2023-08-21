@@ -21,6 +21,7 @@ public class Inventory : MonoBehaviour
         Rockcoins = 0;
         Orescoins = 0;
         Gemstonecoins = 0;
+        Totalcoins = 0;
     }
 
     public static void newday()
@@ -31,5 +32,17 @@ public class Inventory : MonoBehaviour
         Rockcoins = 0;
         Orescoins = 0;
         Gemstonecoins = 0;
+        Totalcoins = 0;
     }
+
+
+
+    private void Update()
+    {
+        Debug.Log("Rocks " + Rocks);
+        Debug.Log("Rockcoins " + Rockcoins);
+        Debug.Log("Cointotal " + Totalcoins);
+
+    }
+
 }
