@@ -39,10 +39,23 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Rocks " + Rocks);
-        Debug.Log("Rockcoins " + Rockcoins);
-        Debug.Log("Cointotal " + Totalcoins);
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Rocks " + Rocks);
+            Debug.Log("Rockcoins " + Rockcoins);
+            Debug.Log("Ores " + Ores);
+            Debug.Log("Orecoins " + Orescoins);
+            Debug.Log("Gemcoins " + Gemstones);
+            Debug.Log("Gems " + Gemstonecoins);
+            Debug.Log("Cointotal " + Totalcoins);
+
+        }
+
+        
 
     }
+
+
 
 }

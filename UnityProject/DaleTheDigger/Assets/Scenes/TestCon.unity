@@ -1419,7 +1419,7 @@ PrefabInstance:
     - target: {fileID: 4801640269083645711, guid: 5562791dfddf6954fb25466f3c793f92, type: 3}
       propertyPath: thisTile
       value: 
-      objectReference: {fileID: 11400000, guid: b01ce437106ec3c4399083702b5c132a, type: 2}
+      objectReference: {fileID: 11400000, guid: c8ef1ffab9e67684ab9f0ce153db52bc, type: 2}
     - target: {fileID: 6081516510378628522, guid: 5562791dfddf6954fb25466f3c793f92, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -1914,7 +1914,7 @@ PrefabInstance:
     - target: {fileID: 4801640269083645711, guid: 5562791dfddf6954fb25466f3c793f92, type: 3}
       propertyPath: thisTile
       value: 
-      objectReference: {fileID: 11400000, guid: b01ce437106ec3c4399083702b5c132a, type: 2}
+      objectReference: {fileID: 11400000, guid: b8f748bce6bb0fd408730c213d8500a3, type: 2}
     - target: {fileID: 6081516510378628522, guid: 5562791dfddf6954fb25466f3c793f92, type: 3}
       propertyPath: m_RootOrder
       value: 9
