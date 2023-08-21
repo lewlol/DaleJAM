@@ -22,6 +22,8 @@ public class NewDay : MonoBehaviour
     public TextMeshProUGUI coinstotal;
 
     public TextMeshProUGUI Playercoins;
+
+    public GameObject outofstaminaui;
         
 
 
@@ -87,6 +89,8 @@ public class NewDay : MonoBehaviour
         otherui.SetActive(true);
         sleepui.SetActive(false);
         PlayerMovement.stamina = PlayerMovement.fullstamina;
+        outofstaminaui.SetActive(false);
+       
     }
 
 

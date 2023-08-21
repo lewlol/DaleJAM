@@ -12,6 +12,8 @@ public class MiningScript : MonoBehaviour
     private bool isHolding;
     private Vector3 originalBlockPosition;
 
+    public GameObject outofstaminaui;
+
     private void Update()
     {
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
@@ -52,6 +54,7 @@ public class MiningScript : MonoBehaviour
                 {
                     // Display a message to the user indicating not enough stamina
                     Debug.Log("Not enough stamina to break this block!");
+                    outofstaminaui.SetActive(true);
                 }
             }
             else
