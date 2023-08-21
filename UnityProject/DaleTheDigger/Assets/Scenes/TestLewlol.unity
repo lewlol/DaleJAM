@@ -236,10 +236,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02b6fca032b19b94b9dc36308e1e409e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stone: {fileID: 4829924959268890723, guid: 758f780c9df6e6048aeadca99b5735ad, type: 3}
-  ores: []
+  biomes:
+  - {fileID: 11400000, guid: b8d61bea4fe893449ab546a37c039e21, type: 2}
+  - {fileID: 11400000, guid: eba9157e2cbb6c5469d91151d2c19bff, type: 2}
+  baseTile: {fileID: 2606007025550641644, guid: 5562791dfddf6954fb25466f3c793f92, type: 3}
   worldLength: 11
-  worldHeight: 50
+  worldHeight: 97
 --- !u!4 &1608595127
 Transform:
   m_ObjectHideFlags: 0

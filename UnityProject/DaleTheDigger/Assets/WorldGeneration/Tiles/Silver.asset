@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc9b9a14e2af1fd45b7562e2e1355778, type: 3}
-  m_Name: Stone
+  m_Name: Silver
   m_EditorClassIdentifier: 
-  tileName: Stone
-  tileSprite: {fileID: 21300000, guid: 2dd14308e67f6c642b4011d9d06c821d, type: 3}
-  tileType: 0
-  coinWorth: 1
+  tileName: Silver
+  tileSprite: {fileID: 21300000, guid: 9aebd705574f9e642aef1e5f59b3e4d8, type: 3}
+  tileType: 1
+  coinWorth: 8

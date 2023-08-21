@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class WorldGeneration : MonoBehaviour
 {
-    public Biome underground;
-    public Biome caverns;
-    public Biome theDeep;
-    Biome activeBiome;
+    public Biome[] biomes;
+    int activeBiome;
 
-    public GameObject stone;
-    public GameObject[] ores;
+    Tile activeTile;
+    public GameObject baseTile;
     public int worldLength;
     public int worldHeight;
-    int currentTile;
     Vector3 spawnPosition;
     void Start()
     {
@@ -27,30 +24,48 @@ public class WorldGeneration : MonoBehaviour
             for (int y = 0; y < worldHeight; y++)
             {
                 //Check y Level
+                float currentYlevel = y;
                 //Compare to Biome Level (if above minimum and below max)
-                int num = Random.Range(0, 11);
-                if(num <= 7)
+                if(currentYlevel <= 50)
                 {
-                    //Stone
+                    activeBiome = 0;
                 }
-                if(num > 7 && num <= 9)
+                if(currentYlevel > 50 && currentYlevel <= 100)
                 {
-                    //Common Ore
+                    activeBiome = 1;
                 }
-                if(num > 9 && num <= 10)
+                if(currentYlevel > 100 && currentYlevel <= 150)
                 {
-                    //Rare Ore
+                    activeBiome = 2;
+                }
+                int num = Random.Range(0, 101);
+                if(num <= 90)
+                {
+                    activeTile = biomes[activeBiome].rockTile;
+                }
+                if(num > 90 && num <= 96)
+                {
+                    activeTile = biomes[activeBiome].commonOreTiles[0];
+                }
+                if(num > 96 && num <= 99)
+                {
+                    activeTile = biomes[activeBiome].rareOreTiles[0];
+                }
+                if(num > 99 && num <= 100)
+                {
+                    activeTile = biomes[activeBiome].uniqueOreTiles[0];
                 }
                 spawnPosition = new Vector3(x, -y, 0);
+                SpawnTile();
             }
         }
     }
 
     public void SpawnTile()
     {
-        GameObject newTile = Instantiate(gameObject, spawnPosition, Quaternion.identity);
+        GameObject newTile = Instantiate(baseTile, spawnPosition, Quaternion.identity);
         newTile.transform.parent = gameObject.transform;
-        newTile.name = "World Tile " + currentTile;
-        currentTile++;
+        newTile.name = activeTile.name;
+        newTile.GetComponent<SpriteRenderer>().sprite = activeTile.tileSprite;
     }
 }
