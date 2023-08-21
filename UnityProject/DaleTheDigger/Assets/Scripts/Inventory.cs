@@ -51,9 +51,6 @@ public class Inventory : MonoBehaviour
             Debug.Log("Cointotal " + Totalcoins);
 
         }
-
-        
-
     }
 
 
