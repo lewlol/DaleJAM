@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class MiningScript : MonoBehaviour
 {
-    public float miningRange = 2.0f; // Adjust this range as needed
-    public float holdDuration = 2.0f; // Time in seconds to hold down
-    public float shakeIntensity = 0.05f; // Intensity of the shake
+    public float miningRange = 2.0f;
+    public float holdDuration = 2.0f;
     public Material highlightMaterial;
 
     private GameObject lastHighlightedBlock;
@@ -12,18 +11,16 @@ public class MiningScript : MonoBehaviour
     private float holdTimer;
     private bool isHolding;
     private Vector3 originalBlockPosition;
-    private bool isShaking;
 
     private void Update()
     {
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
-        if (lastHighlightedBlock != null && (lastHighlightedBlock != hit.collider?.gameObject || !IsInRange(hit.collider?.gameObject)))
+        if (lastHighlightedBlock != null && lastHighlightedBlock != hit.collider?.gameObject)
         {
             RestoreOriginalMaterial();
             isHolding = false;
             holdTimer = 0.0f;
-            isShaking = false;
         }
 
         if (hit.collider != null && hit.collider.CompareTag("Block") && IsInRange(hit.collider.gameObject))
@@ -47,25 +44,18 @@ public class MiningScript : MonoBehaviour
                     RestoreOriginalMaterial();
                     isHolding = false;
                     holdTimer = 0.0f;
-                    isShaking = false;
-                }
-                else
-                {
-                    isShaking = true;
                 }
             }
             else
             {
                 isHolding = false;
                 holdTimer = 0.0f;
-                isShaking = false;
             }
         }
         else
         {
             isHolding = false;
             holdTimer = 0.0f;
-            isShaking = false;
         }
     }
 
@@ -85,18 +75,6 @@ public class MiningScript : MonoBehaviour
             originalMaterial = block.GetComponent<Renderer>().material;
             block.GetComponent<Renderer>().material = highlightMaterial;
         }
-
-        if (isHolding)
-        {
-            if (isShaking)
-            {
-                ShakeBlock(block);
-            }
-            else
-            {
-                block.transform.position = originalBlockPosition;
-            }
-        }
     }
 
     private void RestoreOriginalMaterial()
@@ -108,36 +86,25 @@ public class MiningScript : MonoBehaviour
         }
     }
 
-    private void ShakeBlock(GameObject block)
-    {
-        float xOffset = Random.Range(-shakeIntensity, shakeIntensity);
-        float yOffset = Random.Range(-shakeIntensity, shakeIntensity);
-        block.transform.position = originalBlockPosition + new Vector3(xOffset, yOffset, 0);
-    }
-
     private void BlockStats(RaycastHit2D hit)
     {
         TileDataPlaceholder tdp = hit.collider.gameObject.GetComponent<TileDataPlaceholder>();
         Inventory.Totalcoins += tdp.thisTile.coinWorth;
 
-        if(tdp.thisTile.tileType == TileTypes.Rock)
+        if (tdp.thisTile.tileType == TileTypes.Rock)
         {
             Inventory.Rocks++;
-            Inventory.Rockcoins+= tdp.thisTile.coinWorth;
+            Inventory.Rockcoins += tdp.thisTile.coinWorth;
         }
-        else if(tdp.thisTile.tileType == TileTypes.Ore)
+        else if (tdp.thisTile.tileType == TileTypes.Ore)
         {
             Inventory.Ores++;
-            Inventory.Orescoins+= tdp.thisTile.coinWorth;
+            Inventory.Orescoins += tdp.thisTile.coinWorth;
         }
         else if (tdp.thisTile.tileType == TileTypes.Gemstone)
         {
             Inventory.Gemstones++;
             Inventory.Gemstonecoins += tdp.thisTile.coinWorth;
         }
-       
-
-
-
     }
 }
