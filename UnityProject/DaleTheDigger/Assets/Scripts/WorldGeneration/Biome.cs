@@ -10,4 +10,7 @@ public class Biome : ScriptableObject
     public Tile[] commonOreTiles;
     public Tile[] rareOreTiles;
     public Tile[] uniqueOreTiles;
+
+    public float caveFreq;
+    public float terrainFreq;
 }

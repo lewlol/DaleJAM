@@ -12,14 +12,20 @@ public class WorldGeneration : MonoBehaviour
     public int worldLength;
     public int worldHeight;
     Vector3 spawnPosition;
+
+    public Texture2D noiseTexture;
+    public float caveFrequency;
+    public float seed;
     void Start()
     {
+        seed = Random.Range(-10000, 10000);
+        GenerateNoiseTexture();
         GenerateWorld();
     }
 
     private void GenerateWorld()
     {
-        for(int x = -10; x < worldLength; x++)
+        for(int x = -20; x < worldLength; x++)
         {
             for (int y = 0; y < worldHeight; y++)
             {
@@ -69,5 +75,18 @@ public class WorldGeneration : MonoBehaviour
         newTile.GetComponent<SpriteRenderer>().sprite = activeTile.tileSprite;
         newTile.GetComponent<TileDataPlaceholder>().thisTile = activeTile;
         newTile.GetComponent<BoxCollider2D>().usedByComposite = true;
+    }
+
+    public void GenerateNoiseTexture()
+    {
+        noiseTexture = new Texture2D(worldLength, worldHeight);
+
+        for(int x = 0; x < noiseTexture.width; x++)
+        {
+            for(int y = 0; y < noiseTexture.height; y++)
+            {
+                float v = Mathf.PerlinNoise(x * caveFrequency, y * caveFrequency);
+            }
+        }
     }
 }
