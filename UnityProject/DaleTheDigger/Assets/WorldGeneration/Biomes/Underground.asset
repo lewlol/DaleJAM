@@ -19,4 +19,4 @@ MonoBehaviour:
   rareOreTiles:
   - {fileID: 11400000, guid: c8ef1ffab9e67684ab9f0ce153db52bc, type: 2}
   uniqueOreTiles:
-  - {fileID: 11400000, guid: c8ef1ffab9e67684ab9f0ce153db52bc, type: 2}
+  - {fileID: 11400000, guid: b8f748bce6bb0fd408730c213d8500a3, type: 2}

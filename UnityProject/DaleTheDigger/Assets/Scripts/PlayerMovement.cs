@@ -6,12 +6,14 @@ public class PlayerMovement : MonoBehaviour
 {
     //movement shit
     public float moveSpeed = 5f;
-    public float jumpForce = 10f;
+    public float jumpForce;
     public Transform groundCheck;
     public LayerMask groundLayer;
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private bool isGrounded;
+    public float fallMultiplier;
+    public float lowjumpMultiplier;
 
     //pickaxe and sprite rotation
     public Transform playerCenter; // Empty GameObject at the center of the player
@@ -39,6 +41,14 @@ public class PlayerMovement : MonoBehaviour
         jumping();
         pickaxerotation();
        
+        //Jump More Smooth
+        if(rb.velocity.y < 0)
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }else if(rb.velocity.y > 0 && !Input.GetButton("Jump"))
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowjumpMultiplier - 1) * Time.deltaTime;
+        }
     }
 
     private void FixedUpdate()

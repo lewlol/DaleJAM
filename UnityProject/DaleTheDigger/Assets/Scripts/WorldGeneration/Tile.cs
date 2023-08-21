@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "World Tile")]
 public class Tile : ScriptableObject
 {
-    public string tileName;
+    public TileNames tileName;
     public Sprite tileSprite;
     public TileTypes tileType;
 

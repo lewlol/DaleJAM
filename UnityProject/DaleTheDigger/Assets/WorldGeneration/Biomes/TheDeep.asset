@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4baab1a5c60f7cb46a853a82e6c034c8, type: 3}
-  m_Name: Caverns
+  m_Name: TheDeep
   m_EditorClassIdentifier: 
-  biomeName: Caverns
-  rockTile: {fileID: 11400000, guid: dcb4d14fffaea9c488a1e481740b08bf, type: 2}
+  biomeName: TheDeep
+  rockTile: {fileID: 11400000, guid: d81ab7cc94ef4124f9612f954f012fd5, type: 2}
   commonOreTiles:
-  - {fileID: 11400000, guid: c8ef1ffab9e67684ab9f0ce153db52bc, type: 2}
-  - {fileID: 11400000, guid: b8f748bce6bb0fd408730c213d8500a3, type: 2}
-  rareOreTiles:
   - {fileID: 11400000, guid: 6178b9c4b123d994295e14ef40b30981, type: 2}
+  rareOreTiles:
+  - {fileID: 11400000, guid: 9b71acfa363e1cf41b1ca8e7e2aa31eb, type: 2}
+  - {fileID: 11400000, guid: ad9991b2581600943a6641db7716560a, type: 2}
   uniqueOreTiles:
-  - {fileID: 11400000, guid: 220213eeefe8a4047b6f7e0821eae301, type: 2}
+  - {fileID: 11400000, guid: 6744654119d60e6498c131e1e3e833e7, type: 2}

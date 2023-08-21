@@ -82,7 +82,7 @@ public class WorldGeneration : MonoBehaviour
 
     public void GenerateNoiseTexture()
     {
-        noiseTexture = new Texture2D(worldLength, worldHeight);
+        noiseTexture = new Texture2D(worldLength * 2, worldHeight * 2);
 
         for(int x = 0; x < noiseTexture.width; x++)
         {

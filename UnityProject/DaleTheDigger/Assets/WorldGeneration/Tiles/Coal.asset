@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc9b9a14e2af1fd45b7562e2e1355778, type: 3}
   m_Name: Coal
   m_EditorClassIdentifier: 
-  tileName: Coal
-  tileSprite: {fileID: 21300000, guid: 1c3a3327ce1fb6c44868989360b8cb05, type: 3}
+  tileName: 3
+  tileSprite: {fileID: 1948017743, guid: c8ef7ecde803e1f4d894883b5383ee01, type: 3}
   tileType: 1
   coinWorth: 3

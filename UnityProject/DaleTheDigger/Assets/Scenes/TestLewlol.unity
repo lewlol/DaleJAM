@@ -253,11 +253,12 @@ MonoBehaviour:
   biomes:
   - {fileID: 11400000, guid: b8d61bea4fe893449ab546a37c039e21, type: 2}
   - {fileID: 11400000, guid: eba9157e2cbb6c5469d91151d2c19bff, type: 2}
+  - {fileID: 11400000, guid: f375b26081915fd4c97a9625101f14fb, type: 2}
   baseTile: {fileID: 2606007025550641644, guid: 5562791dfddf6954fb25466f3c793f92, type: 3}
   worldLength: 21
-  worldHeight: 97
+  worldHeight: 145
   noiseTexture: {fileID: 0}
-  caveFrequency: 0.1
+  caveFrequency: 0.2
   seed: 0
 --- !u!4 &1608595127
 Transform:
@@ -325,10 +326,6 @@ PrefabInstance:
     - target: {fileID: 3569117739720073777, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3569117739720073779, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
-      propertyPath: m_Constraints
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3569117739720073780, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
       propertyPath: m_Name
