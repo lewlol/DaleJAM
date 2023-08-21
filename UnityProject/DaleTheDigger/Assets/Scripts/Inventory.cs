@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+
     public static int Rocks;
     public static int Ores;
     public static int Gemstones;
@@ -26,6 +27,7 @@ public class Inventory : MonoBehaviour
 
     public static void newday()
     {
+        PlayerMovement.coins += Totalcoins;
         Rocks = 0;
         Ores = 0;
         Gemstones = 0;
