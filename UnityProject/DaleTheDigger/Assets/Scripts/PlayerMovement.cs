@@ -56,12 +56,16 @@ public class PlayerMovement : MonoBehaviour
             // Rotate the playerCenter (and the attached pickaxe)
             playerCenter.rotation = Quaternion.Euler(0f, 0f, angle);
 
-            // Flip player sprite
             if (mousePos.x < playerCenter.position.x)
+            {
                 GetComponent<SpriteRenderer>().flipX = true;
+                pickaxe.GetComponent<SpriteRenderer>().flipY = true;
+            }
             else
+            {
                 GetComponent<SpriteRenderer>().flipX = false;
-
+                pickaxe.GetComponent<SpriteRenderer>().flipY = false;
+            }
 
         }
     }
