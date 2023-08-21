@@ -68,6 +68,6 @@ public class WorldGeneration : MonoBehaviour
         newTile.name = activeTile.name;
         newTile.GetComponent<SpriteRenderer>().sprite = activeTile.tileSprite;
         newTile.GetComponent<TileDataPlaceholder>().thisTile = activeTile;
-
+        newTile.GetComponent<BoxCollider2D>().usedByComposite = true;
     }
 }

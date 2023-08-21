@@ -23,11 +23,13 @@ public class PlayerMovement : MonoBehaviour
     public static int stamina = 50; //each block broke loses stamina 
     public static int fortune = 1; //chance to get mroe ores from mining
 
-
+    //Animation
+    private Animator anim;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -81,6 +83,15 @@ public class PlayerMovement : MonoBehaviour
         // Movement
         float moveDirection = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveDirection * moveSpeed, rb.velocity.y);
+
+        if(rb.velocity != Vector2.zero)
+        {
+            anim.SetBool("isWalking", true);
+        }
+        else
+        {
+            anim.SetBool("isWalking", false);
+        }
     }
 
 }
