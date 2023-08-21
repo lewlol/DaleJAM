@@ -67,5 +67,7 @@ public class WorldGeneration : MonoBehaviour
         newTile.transform.parent = gameObject.transform;
         newTile.name = activeTile.name;
         newTile.GetComponent<SpriteRenderer>().sprite = activeTile.tileSprite;
+        newTile.GetComponent<TileDataPlaceholder>().thisTile = activeTile;
+
     }
 }

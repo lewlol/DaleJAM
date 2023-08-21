@@ -42,6 +42,7 @@ public class MiningScript : MonoBehaviour
 
                 if (holdTimer >= holdDuration)
                 {
+                    BlockStats(hit);
                     Destroy(hit.collider.gameObject);
                     RestoreOriginalMaterial();
                     isHolding = false;
@@ -112,5 +113,10 @@ public class MiningScript : MonoBehaviour
         float xOffset = Random.Range(-shakeIntensity, shakeIntensity);
         float yOffset = Random.Range(-shakeIntensity, shakeIntensity);
         block.transform.position = originalBlockPosition + new Vector3(xOffset, yOffset, 0);
+    }
+
+    private void BlockStats(RaycastHit2D hit)
+    {
+        TileDataPlaceholder tdp = hit.collider.gameObject.GetComponent<TileDataPlaceholder>();
     }
 }
