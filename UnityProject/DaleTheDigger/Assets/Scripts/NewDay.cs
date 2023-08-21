@@ -86,6 +86,7 @@ public class NewDay : MonoBehaviour
         Inventory.newday();
         otherui.SetActive(true);
         sleepui.SetActive(false);
+        PlayerMovement.stamina = PlayerMovement.fullstamina;
     }
 
 

@@ -97,7 +97,7 @@ public class Shop : MonoBehaviour
         {
             PlayerMovement.coins -= staminacost;
             staminalevel++;
-            PlayerMovement.stamina += 5;
+            PlayerMovement.fullstamina += 5;
             staminacost += 20;
         }
         

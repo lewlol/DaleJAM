@@ -35,15 +35,23 @@ public class MiningScript : MonoBehaviour
                     originalBlockPosition = hit.collider.transform.position;
                 }
 
-                holdTimer += Time.deltaTime;
-
-                if (holdTimer >= holdDuration)
+                if (PlayerMovement.stamina > 0) // Check if the player has enough stamina
                 {
-                    BlockStats(hit);
-                    Destroy(hit.collider.gameObject);
-                    RestoreOriginalMaterial();
-                    isHolding = false;
-                    holdTimer = 0.0f;
+                    holdTimer += Time.deltaTime;
+
+                    if (holdTimer >= holdDuration)
+                    {
+                        BlockStats(hit);
+                        Destroy(hit.collider.gameObject);
+                        RestoreOriginalMaterial();
+                        isHolding = false;
+                        holdTimer = 0.0f;
+                    }
+                }
+                else
+                {
+                    // Display a message to the user indicating not enough stamina
+                    Debug.Log("Not enough stamina to break this block!");
                 }
             }
             else
@@ -88,6 +96,11 @@ public class MiningScript : MonoBehaviour
 
     private void BlockStats(RaycastHit2D hit)
     {
+        // when a block is broken
+
+        PlayerMovement.stamina--;
+
+
         TileDataPlaceholder tdp = hit.collider.gameObject.GetComponent<TileDataPlaceholder>();
         Inventory.Totalcoins += tdp.thisTile.coinWorth;
 
