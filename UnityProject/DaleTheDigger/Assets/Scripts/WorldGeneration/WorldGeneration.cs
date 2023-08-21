@@ -29,40 +29,43 @@ public class WorldGeneration : MonoBehaviour
         {
             for (int y = 0; y < worldHeight; y++)
             {
-                //Check y Level
-                float currentYlevel = y;
-                //Compare to Biome Level (if above minimum and below max)
-                if(currentYlevel <= 50)
+                if(noiseTexture.GetPixel(x,y).r < 0.5)
                 {
-                    activeBiome = 0;
+                    //Check y Level
+                    float currentYlevel = y;
+                    //Compare to Biome Level (if above minimum and below max)
+                    if (currentYlevel <= 50)
+                    {
+                        activeBiome = 0;
+                    }
+                    if (currentYlevel > 50 && currentYlevel <= 100)
+                    {
+                        activeBiome = 1;
+                    }
+                    if (currentYlevel > 100 && currentYlevel <= 150)
+                    {
+                        activeBiome = 2;
+                    }
+                    int num = Random.Range(0, 101);
+                    if (num <= 90)
+                    {
+                        activeTile = biomes[activeBiome].rockTile;
+                    }
+                    if (num > 90 && num <= 96)
+                    {
+                        activeTile = biomes[activeBiome].commonOreTiles[0];
+                    }
+                    if (num > 96 && num <= 99)
+                    {
+                        activeTile = biomes[activeBiome].rareOreTiles[0];
+                    }
+                    if (num > 99 && num <= 100)
+                    {
+                        activeTile = biomes[activeBiome].uniqueOreTiles[0];
+                    }
+                    spawnPosition = new Vector3(x, -y, 0);
+                    SpawnTile();
                 }
-                if(currentYlevel > 50 && currentYlevel <= 100)
-                {
-                    activeBiome = 1;
-                }
-                if(currentYlevel > 100 && currentYlevel <= 150)
-                {
-                    activeBiome = 2;
-                }
-                int num = Random.Range(0, 101);
-                if(num <= 90)
-                {
-                    activeTile = biomes[activeBiome].rockTile;
-                }
-                if(num > 90 && num <= 96)
-                {
-                    activeTile = biomes[activeBiome].commonOreTiles[0];
-                }
-                if(num > 96 && num <= 99)
-                {
-                    activeTile = biomes[activeBiome].rareOreTiles[0];
-                }
-                if(num > 99 && num <= 100)
-                {
-                    activeTile = biomes[activeBiome].uniqueOreTiles[0];
-                }
-                spawnPosition = new Vector3(x, -y, 0);
-                SpawnTile();
             }
         }
     }
@@ -85,8 +88,10 @@ public class WorldGeneration : MonoBehaviour
         {
             for(int y = 0; y < noiseTexture.height; y++)
             {
-                float v = Mathf.PerlinNoise(x * caveFrequency, y * caveFrequency);
+                float v = Mathf.PerlinNoise((x + seed) * caveFrequency, (y + seed) * caveFrequency);
+                noiseTexture.SetPixel(x, y, new Color(v, v, v));
             }
         }
+        noiseTexture.Apply();
     }
 }
