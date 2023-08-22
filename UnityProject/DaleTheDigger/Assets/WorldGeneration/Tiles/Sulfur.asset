@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Sulfur
   m_EditorClassIdentifier: 
   tileName: 9
-  tileSprite: {fileID: 1589698762, guid: c8ef7ecde803e1f4d894883b5383ee01, type: 3}
+  tileSprite: {fileID: 631005555, guid: c8ef7ecde803e1f4d894883b5383ee01, type: 3}
   tileType: 1
   coinWorth: 25

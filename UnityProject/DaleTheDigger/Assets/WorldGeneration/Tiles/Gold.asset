@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Gold
   m_EditorClassIdentifier: 
   tileName: 6
-  tileSprite: {fileID: 594901576, guid: c8ef7ecde803e1f4d894883b5383ee01, type: 3}
+  tileSprite: {fileID: 565643377, guid: c8ef7ecde803e1f4d894883b5383ee01, type: 3}
   tileType: 1
   coinWorth: 12

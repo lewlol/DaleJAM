@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Titanium
   m_EditorClassIdentifier: 
   tileName: 10
-  tileSprite: {fileID: 403502293, guid: c8ef7ecde803e1f4d894883b5383ee01, type: 3}
+  tileSprite: {fileID: -1946063055, guid: c8ef7ecde803e1f4d894883b5383ee01, type: 3}
   tileType: 0
   coinWorth: 30
