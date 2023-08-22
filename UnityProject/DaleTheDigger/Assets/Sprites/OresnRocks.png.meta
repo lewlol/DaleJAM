@@ -143,7 +143,7 @@ TextureImporter:
       name: OresnRocks_1
       rect:
         serializedVersion: 2
-        x: 112
+        x: 16
         y: 112
         width: 16
         height: 16
@@ -164,8 +164,8 @@ TextureImporter:
       name: OresnRocks_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 96
+        x: 112
+        y: 112
         width: 16
         height: 16
       alignment: 0
@@ -175,7 +175,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f22d7be8fcf5af46a3a1842a786f02c
+      spriteID: 2fa02eae6e2497c49acc99bc7a0f55da
       internalID: -1489851572
       vertices: []
       indices: 
@@ -185,7 +185,7 @@ TextureImporter:
       name: OresnRocks_3
       rect:
         serializedVersion: 2
-        x: 112
+        x: 0
         y: 96
         width: 16
         height: 16
@@ -196,7 +196,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 421da8b4ff4f29d479e76a15f303fd6a
+      spriteID: 7c6302f9e7a7cf24b858649e2018029a
       internalID: 1537405671
       vertices: []
       indices: 
@@ -206,8 +206,8 @@ TextureImporter:
       name: OresnRocks_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 80
+        x: 16
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -217,7 +217,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ffdace6200254f409e92cf9681e41b8
+      spriteID: 09c18f3d5bafe2b4da0d7ba34602c559
       internalID: -517355573
       vertices: []
       indices: 
@@ -228,6 +228,27 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 112
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9abbd991d8b7f9646a4f6239a307da5c
+      internalID: -862445041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OresnRocks_6
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 80
         width: 16
         height: 16
@@ -238,14 +259,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba930972cec90614c84f526306aaadfa
-      internalID: -862445041
+      spriteID: 6a14fb358a6317f43a34b04cda004092
+      internalID: 594901576
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OresnRocks_6
+      name: OresnRocks_7
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7d76076036a43548a219698c0424f40
+      internalID: -1054655790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OresnRocks_8
       rect:
         serializedVersion: 2
         x: 112
@@ -259,14 +301,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2c2378a4a7665042a252d2010ab3f20
-      internalID: 594901576
+      spriteID: 7684fb21c785fa342a5f537c135cd103
+      internalID: 565643377
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OresnRocks_7
+      name: OresnRocks_9
       rect:
         serializedVersion: 2
         x: 112
@@ -280,14 +322,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76e8d309e69145b49bc098d9a133333f
-      internalID: -1054655790
+      spriteID: b2a0dea46493b8c4cad987f262e56338
+      internalID: 1589698762
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OresnRocks_8
+      name: OresnRocks_10
       rect:
         serializedVersion: 2
         x: 112
@@ -301,14 +343,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 245002e48abc4c74c99c8150fa5bf430
-      internalID: 565643377
+      spriteID: 51878a6faa011614ea05e204855e1214
+      internalID: 403502293
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OresnRocks_9
+      name: OresnRocks_11
       rect:
         serializedVersion: 2
         x: 112
@@ -322,14 +364,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae6b425e1454bdb4b82d3dda61082ec4
-      internalID: 1589698762
+      spriteID: c471ca2de64c85f4fa98e5ec29d445d7
+      internalID: 631005555
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OresnRocks_10
+      name: OresnRocks_12
       rect:
         serializedVersion: 2
         x: 112
@@ -343,8 +385,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3951dac18d06f634cbd5bef0684052e9
-      internalID: 403502293
+      spriteID: b42e274fc726b764f984333e9d67ffa4
+      internalID: -1946063055
       vertices: []
       indices: 
       edges: []
@@ -366,9 +408,11 @@ TextureImporter:
       OresnRocks_8: 565643377
       OresnRocks_2: -1489851572
       OresnRocks_1: 1948017743
+      OresnRocks_11: 631005555
       OresnRocks_4: -517355573
       OresnRocks_0: 1321146257
       OresnRocks_6: 594901576
+      OresnRocks_12: -1946063055
       OresnRocks_10: 403502293
       OresnRocks_9: 1589698762
   spritePackingTag: 
