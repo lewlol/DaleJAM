@@ -94,4 +94,11 @@ public class WorldGeneration : MonoBehaviour
         }
         noiseTexture.Apply();
     }
+
+    public void NewDay()
+    {
+        seed = Random.Range(-10000, 10000);
+        GenerateNoiseTexture();
+        GenerateWorld();
+    }
 }

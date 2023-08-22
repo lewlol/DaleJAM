@@ -90,7 +90,8 @@ public class NewDay : MonoBehaviour
         sleepui.SetActive(false);
         PlayerMovement.stamina = PlayerMovement.fullstamina;
         outofstaminaui.SetActive(false);
-       
+        WorldGeneration wg = GameObject.Find("WorldGenerationManager").GetComponent<WorldGeneration>();
+        wg.NewDay();
     }
 
 
