@@ -27,7 +27,7 @@ public class WorldGeneration : MonoBehaviour
     {
         for(int x = -20; x < worldLength; x++)
         {
-            for (int y = 0; y < worldHeight; y++)
+            for (int y = 1; y < worldHeight; y++)
             {
                 if(noiseTexture.GetPixel(x,y).r < 0.5)
                 {
