@@ -24,12 +24,8 @@ public class NewDay : MonoBehaviour
     public TextMeshProUGUI Playercoins;
 
     public GameObject outofstaminaui;
-        
 
-
-
-
-
+    public GameObject worldGen;
     void Start()
     {
         day = 1;
@@ -90,7 +86,14 @@ public class NewDay : MonoBehaviour
         sleepui.SetActive(false);
         PlayerMovement.stamina = PlayerMovement.fullstamina;
         outofstaminaui.SetActive(false);
+
         WorldGeneration wg = GameObject.Find("WorldGenerationManager").GetComponent<WorldGeneration>();
+
+        //Delete Previous World Gen
+        foreach(GameObject tile in wg.tiles)
+        {     
+            Destroy(tile);
+        }
         wg.NewDay();
     }
 
