@@ -21,6 +21,15 @@ public class MiningScript : MonoBehaviour
     private bool isInsufficientPowerTextActive = false;
     private Coroutine insufficientPowerCoroutine;
 
+    private Vector3 originalPosition; // Store the original position of the block
+    private Vector3 shakeOffset; // Store the current shake offset
+
+    private void Start()
+    {
+        originalPosition = Vector3.zero; // Initialize originalPosition
+        shakeOffset = Vector3.zero; // Initialize shakeOffset
+    }
+
     private void Update()
     {
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
@@ -44,16 +53,20 @@ public class MiningScript : MonoBehaviour
                     originalBlockPosition = hit.collider.transform.position;
                 }
 
-                if (PlayerMovement.stamina > 0) // Check if the player has enough stamina
+                if (PlayerMovement.stamina > 0)
                 {
-                    // Additional check for breaking power
                     TileDataPlaceholder tdp = hit.collider.gameObject.GetComponent<TileDataPlaceholder>();
                     int requiredBreakingPower = tdp.thisTile.breakingpower;
                     int playerBreakingPower = PlayerMovement.breakingpower;
 
-                    if (playerBreakingPower >= requiredBreakingPower) // Player has enough breaking power
+                    if (playerBreakingPower >= requiredBreakingPower)
                     {
                         holdTimer += Time.deltaTime;
+
+                        // Apply shaking effect while mining
+                        float shakeMagnitude = 0.05f; // Adjust the magnitude as needed
+                        shakeOffset = Random.insideUnitCircle * shakeMagnitude;
+                        hit.collider.transform.position = originalPosition + shakeOffset;
 
                         if (holdTimer >= holdDuration)
                         {
@@ -77,7 +90,6 @@ public class MiningScript : MonoBehaviour
                 }
                 else
                 {
-                    // Display a message to the user indicating not enough stamina
                     Debug.Log("Not enough stamina to break this block!");
                     outofstaminaui.SetActive(true);
                 }
@@ -110,6 +122,8 @@ public class MiningScript : MonoBehaviour
 
             originalMaterial = block.GetComponent<Renderer>().material;
             block.GetComponent<Renderer>().material = outlineMaterial; // Use the outline material here
+
+            originalPosition = block.transform.position; // Store the original position
         }
     }
 
@@ -118,6 +132,7 @@ public class MiningScript : MonoBehaviour
         if (lastHighlightedBlock != null && originalMaterial != null)
         {
             lastHighlightedBlock.GetComponent<Renderer>().material = originalMaterial;
+            lastHighlightedBlock.transform.position = originalPosition; // Restore the original position
             lastHighlightedBlock = null;
         }
     }
