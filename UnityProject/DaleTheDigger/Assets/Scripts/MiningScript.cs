@@ -10,6 +10,7 @@ public class MiningScript : MonoBehaviour
 
     private GameObject lastHighlightedBlock;
     private Material originalMaterial;
+    private Material outlineMaterial; // Assign the outline material in the inspector
     private float holdTimer;
     private bool isHolding;
     private Vector3 originalBlockPosition;
@@ -108,7 +109,7 @@ public class MiningScript : MonoBehaviour
             lastHighlightedBlock = block;
 
             originalMaterial = block.GetComponent<Renderer>().material;
-            block.GetComponent<Renderer>().material = highlightMaterial;
+            block.GetComponent<Renderer>().material = outlineMaterial; // Use the outline material here
         }
     }
 
