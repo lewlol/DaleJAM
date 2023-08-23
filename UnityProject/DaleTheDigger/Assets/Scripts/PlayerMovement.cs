@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     //Upgrades and shit
     public static int coins = 1000; //used for upgrades
-    public static int breakingpower = 1; // determins what blocks player can break, each level changes pickaxe sprite too
+    public static int breakingpower = 0; // determins what blocks player can break, each level changes pickaxe sprite too
     public static int fullstamina = 50;
     public static int stamina = 2; //each block broke loses stamina 
     public static int fortune = 0; //chance to get mroe ores from mining
@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         fullstamina = 50;
         fortune = 0;
-        breakingpower = 1;
+        breakingpower = 0;
         coins = 100;
         stamina = fullstamina;
     }

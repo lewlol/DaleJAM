@@ -15,4 +15,5 @@ MonoBehaviour:
   tileName: 2
   tileSprite: {fileID: 594901576, guid: c8ef7ecde803e1f4d894883b5383ee01, type: 3}
   tileType: 0
+  breakingpower: 2
   coinWorth: 3

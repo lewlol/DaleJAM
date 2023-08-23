@@ -9,5 +9,6 @@ public class Tile : ScriptableObject
     public Sprite tileSprite;
     public TileTypes tileType;
 
+    public int breakingpower;
     public int coinWorth;
 }
