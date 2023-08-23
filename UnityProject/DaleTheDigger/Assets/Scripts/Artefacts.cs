@@ -72,41 +72,41 @@ public class Artefacts : MonoBehaviour
     {
         if (Artefact1Level == 0)
         {
-            Artefact1Sprite.SetActive(false);
-            ArtefactLevelIcon1.sprite = locked;
+           // Artefact1Sprite.SetActive(false);
+           // ArtefactLevelIcon1.sprite = locked;
             staminachance = 1;
 
 
         }
         else if (Artefact1Level == 1)
         {
-            Artefact1Sprite.SetActive(true);
-            ArtefactLevelIcon1.sprite = Level1;
+          //  Artefact1Sprite.SetActive(true);
+          //  ArtefactLevelIcon1.sprite = Level1;
             staminachance = 0.9f;
         }
         else if(Artefact1Level == 2)
         {
-            Artefact1Sprite.SetActive(true);
-            ArtefactLevelIcon1.sprite = Level2;
+           // Artefact1Sprite.SetActive(true);
+           // ArtefactLevelIcon1.sprite = Level2;
             staminachance = 0.8f;
         }
         else if(Artefact1Level == 3)
         {
-            Artefact1Sprite.SetActive(true);
-            ArtefactLevelIcon1.sprite = Level3;
+          //  Artefact1Sprite.SetActive(true);
+          //  ArtefactLevelIcon1.sprite = Level3;
             staminachance = 0.7f;
 
         }
         else if(Artefact1Level == 4)
         {
-            Artefact1Sprite.SetActive(true);
-            ArtefactLevelIcon1.sprite = Level4;
+          //  Artefact1Sprite.SetActive(true);
+           // ArtefactLevelIcon1.sprite = Level4;
             staminachance = 0.6f;
         }
         else if(Artefact1Level == 5)
         {
-            Artefact1Sprite.SetActive(true);
-            ArtefactLevelIcon1.sprite = Level5;
+           // Artefact1Sprite.SetActive(true);
+          //  ArtefactLevelIcon1.sprite = Level5;
             staminachance = 0.5f;
         }
         else
@@ -118,33 +118,33 @@ public class Artefacts : MonoBehaviour
     {
         if (Artefact2Level == 0)
         {
-            Artefact2Sprite.SetActive(false);
-            ArtefactLevelIcon2.sprite = locked;
+          //  Artefact2Sprite.SetActive(false);
+         //   ArtefactLevelIcon2.sprite = locked;
         }
         else if (Artefact2Level == 1)
         {
-            Artefact2Sprite.SetActive(true);
-            ArtefactLevelIcon2.sprite = Level1;
+           // Artefact2Sprite.SetActive(true);
+          //  ArtefactLevelIcon2.sprite = Level1;
         }
         else if (Artefact2Level == 2)
         {
-            Artefact2Sprite.SetActive(true);
-            ArtefactLevelIcon2.sprite = Level2;
+           // Artefact2Sprite.SetActive(true);
+          //  ArtefactLevelIcon2.sprite = Level2;
         }
         else if (Artefact2Level == 3)
         {
-            Artefact2Sprite.SetActive(true);
-            ArtefactLevelIcon2.sprite = Level3;
+           // Artefact2Sprite.SetActive(true);
+          //  ArtefactLevelIcon2.sprite = Level3;
         }
         else if (Artefact2Level == 4)
         {
-            Artefact2Sprite.SetActive(true);
-            ArtefactLevelIcon2.sprite = Level4;
+           // Artefact2Sprite.SetActive(true);
+           // ArtefactLevelIcon2.sprite = Level4;
         }
         else if (Artefact2Level == 5)
         {
-            Artefact2Sprite.SetActive(true);
-            ArtefactLevelIcon2.sprite = Level5;
+           // Artefact2Sprite.SetActive(true);
+           // ArtefactLevelIcon2.sprite = Level5;
         }
         else
         {
@@ -155,33 +155,33 @@ public class Artefacts : MonoBehaviour
     {
         if (Artefact3Level == 0)
         {
-            Artefact3Sprite.SetActive(false);
-            ArtefactLevelIcon3.sprite = locked;
+          //  Artefact3Sprite.SetActive(false);
+         //   ArtefactLevelIcon3.sprite = locked;
         }
         else if (Artefact3Level == 1)
         {
-            Artefact3Sprite.SetActive(true);
-            ArtefactLevelIcon3.sprite = Level1;
+           // Artefact3Sprite.SetActive(true);
+           // ArtefactLevelIcon3.sprite = Level1;
         }
         else if (Artefact3Level == 2)
         {
-            Artefact3Sprite.SetActive(true);
-            ArtefactLevelIcon3.sprite = Level2;
+           // Artefact3Sprite.SetActive(true);
+           // ArtefactLevelIcon3.sprite = Level2;
         }
         else if (Artefact3Level == 3)
         {
-            Artefact3Sprite.SetActive(true);
-            ArtefactLevelIcon3.sprite = Level3;
+           // Artefact3Sprite.SetActive(true);
+           // ArtefactLevelIcon3.sprite = Level3;
         }
         else if (Artefact3Level == 4)
         {
-            Artefact3Sprite.SetActive(true);
-            ArtefactLevelIcon3.sprite = Level4;
+          //  Artefact3Sprite.SetActive(true);
+           // ArtefactLevelIcon3.sprite = Level4;
         }
         else if (Artefact3Level == 5)
         {
-            Artefact3Sprite.SetActive(true);
-            ArtefactLevelIcon3.sprite = Level5;
+          //  Artefact3Sprite.SetActive(true);
+           // ArtefactLevelIcon3.sprite = Level5;
         }
         else
         {
@@ -192,33 +192,33 @@ public class Artefacts : MonoBehaviour
     {
         if (Artefact4Level == 0)
         {
-            Artefact4Sprite.SetActive(false);
-            ArtefactLevelIcon4.sprite = locked;
+           // Artefact4Sprite.SetActive(false);
+           // ArtefactLevelIcon4.sprite = locked;
         }
         else if (Artefact4Level == 1)
         {
-            Artefact4Sprite.SetActive(true);
-            ArtefactLevelIcon4.sprite = Level1;
+          //  Artefact4Sprite.SetActive(true);
+           // ArtefactLevelIcon4.sprite = Level1;
         }
         else if (Artefact4Level == 2)
         {
-            Artefact4Sprite.SetActive(true);
-            ArtefactLevelIcon4.sprite = Level2;
+           // Artefact4Sprite.SetActive(true);
+           // ArtefactLevelIcon4.sprite = Level2;
         }
         else if (Artefact4Level == 3)
         {
-            Artefact4Sprite.SetActive(true);
-            ArtefactLevelIcon4.sprite = Level3;
+          //  Artefact4Sprite.SetActive(true);
+          //  ArtefactLevelIcon4.sprite = Level3;
         }
         else if (Artefact4Level == 4)
         {
-            Artefact4Sprite.SetActive(true);
-            ArtefactLevelIcon4.sprite = Level4;
+           // Artefact4Sprite.SetActive(true);
+           // ArtefactLevelIcon4.sprite = Level4;
         }
         else if (Artefact4Level == 5)
         {
-            Artefact4Sprite.SetActive(true);
-            ArtefactLevelIcon4.sprite = Level5;
+           // Artefact4Sprite.SetActive(true);
+           // ArtefactLevelIcon4.sprite = Level5;
         }
         else
         {
