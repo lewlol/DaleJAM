@@ -20,3 +20,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c8ef1ffab9e67684ab9f0ce153db52bc, type: 2}
   uniqueOreTiles:
   - {fileID: 11400000, guid: b8f748bce6bb0fd408730c213d8500a3, type: 2}
+  loot: {fileID: 11400000, guid: 5ad9720ad406863418598ef1077493bc, type: 2}
+  gemstones:
+  - {fileID: 11400000, guid: 3ee0d5d2046a32e4b894f96b08228962, type: 2}

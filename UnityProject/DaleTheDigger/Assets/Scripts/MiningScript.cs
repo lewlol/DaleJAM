@@ -121,7 +121,6 @@ public class MiningScript : MonoBehaviour
 
             originalMaterial = block.GetComponent<Renderer>().material;
             block.GetComponent<Renderer>().material = block.GetComponent<Renderer>().material; // Use the outline material here
-
             originalPosition = block.transform.position; // Store the original position
         }
     }
@@ -131,6 +130,7 @@ public class MiningScript : MonoBehaviour
         if (lastHighlightedBlock != null && originalMaterial != null)
         {
             lastHighlightedBlock.GetComponent<Renderer>().material = originalMaterial;
+            //lastHighlightedBlock.GetComponentInChildren<SpriteRenderer>().enabled = false;
             lastHighlightedBlock.transform.position = originalPosition; // Restore the original position
             lastHighlightedBlock = null;
         }

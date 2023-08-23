@@ -23,4 +23,7 @@ public enum TileNames
     Diamond,
     Tanzanite,
     Jadeite,
+
+    //Loot
+    Chest,
 }

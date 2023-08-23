@@ -6,8 +6,13 @@ using UnityEngine;
 public class Biome : ScriptableObject
 {
     public string biomeName;
+
     public Tile rockTile;
+
     public Tile[] commonOreTiles;
     public Tile[] rareOreTiles;
     public Tile[] uniqueOreTiles;
+
+    public Tile loot;
+    public Tile[] gemstones;
 }
