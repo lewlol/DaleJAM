@@ -23,6 +23,8 @@ public class MiningScript : MonoBehaviour
     private Vector3 originalPosition; // Store the original position of the block
     private Vector3 shakeOffset; // Store the current shake offset
 
+    public MeshTextAppear tma;
+    int amountDropped;
     private void Start()
     {
         originalPosition = Vector3.zero; // Initialize originalPosition
@@ -70,10 +72,16 @@ public class MiningScript : MonoBehaviour
                         if (holdTimer >= holdDuration)
                         {
                             BlockStats(hit);
-                            Destroy(hit.collider.gameObject);
+                            Vector2 blockpos = hit.collider.transform.position;
+                            string text = tdp.thisTile.name;
                             RestoreOriginalMaterial();
                             isHolding = false;
                             holdTimer = 0.0f;
+
+                            //Text 
+                            tma.GenerateText(blockpos, 1, "+" + amountDropped + " " + text, 30);
+
+                            StartCoroutine(DestroyDelay(hit));
                         }
                     }
                     else
@@ -138,7 +146,7 @@ public class MiningScript : MonoBehaviour
 
 
     private void BlockStats(RaycastHit2D hit)
-    {
+    {      
         PlayerMovement.stamina--;
         int fortuneLevel = PlayerMovement.fortune;
 
@@ -151,7 +159,7 @@ public class MiningScript : MonoBehaviour
         if (Random.value <= chanceForDoubleDrop) // Check if the player gets double drops
         {
             Inventory.Totalcoins += coinWorth * 2;
-
+            amountDropped = 2;
             if (tdp.thisTile.tileType == TileTypes.Rock)
             {
                 Inventory.Rocks += 2;
@@ -171,7 +179,7 @@ public class MiningScript : MonoBehaviour
         else // Regular drop
         {
             Inventory.Totalcoins += coinWorth;
-
+            amountDropped = 1;
             if (tdp.thisTile.tileType == TileTypes.Rock)
             {
                 Inventory.Rocks++;
@@ -195,5 +203,13 @@ public class MiningScript : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         insufficientPowerText.gameObject.SetActive(false);
         isInsufficientPowerTextActive = false;
+    }
+
+    public IEnumerator DestroyDelay(RaycastHit2D hit)
+    {
+        hit.collider.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        hit.collider.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        yield return new WaitForSeconds(2f);
+        Destroy(hit.collider.gameObject);
     }
 }

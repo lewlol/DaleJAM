@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class MeshTextAppear : MonoBehaviour
 {
-    public GameObject TextMesh;
-    public void GenerateText(Vector2 position, float time, string text, float size)
+    public GameObject textmesh;
+    public void GenerateText(Vector3 position, float time, string text, int size)
     { 
-        GameObject textMesh = Instantiate(TextMesh, position, Quaternion.identity);
-        TextMeshProUGUI tmp = textMesh.GetComponent<TextMeshProUGUI>();
+        GameObject textMesh = Instantiate(textmesh, new Vector3(position.x, position.y, -2.5f), Quaternion.identity);
+        TextMesh tmp = textMesh.GetComponent<TextMesh>();
 
         tmp.text = text;
-        tmp.fontSize = size; //5 is normally a good size
+        tmp.fontSize = size; //30 is normally a good size
         Destroy(textMesh, time);
     }
 }
