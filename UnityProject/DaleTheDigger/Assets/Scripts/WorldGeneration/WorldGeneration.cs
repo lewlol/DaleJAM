@@ -29,7 +29,7 @@ public class WorldGeneration : MonoBehaviour
         GenerateMineShaft();
         GenerateWorld();
         GenerateLoot();
-        //GenerateGemstones();
+        GenerateGemstones();
     }
 
     private void GenerateMineShaft()
@@ -94,7 +94,7 @@ public class WorldGeneration : MonoBehaviour
         GenerateMineShaft();
         GenerateWorld();
         GenerateLoot();
-       // GenerateGemstones();
+        GenerateGemstones();
     }
 
     public void yLevelCheck()
