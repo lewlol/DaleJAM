@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         fullstamina = 50;
         fortune = 0;
         breakingpower = 0;
-        coins = 100;
+        coins = 500;
         stamina = fullstamina;
     }
 
