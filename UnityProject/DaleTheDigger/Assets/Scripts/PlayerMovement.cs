@@ -33,6 +33,10 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        fullstamina = 50;
+        fortune = 1;
+        breakingpower = 1;
+        coins = 100;
         stamina = fullstamina;
     }
 
