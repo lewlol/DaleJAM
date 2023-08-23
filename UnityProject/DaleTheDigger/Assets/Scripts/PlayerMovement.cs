@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public static int breakingpower = 1; // determins what blocks player can break, each level changes pickaxe sprite too
     public static int fullstamina = 50;
     public static int stamina = 2; //each block broke loses stamina 
-    public static int fortune = 1; //chance to get mroe ores from mining
+    public static int fortune = 0; //chance to get mroe ores from mining
 
     //Animation
     private Animator anim;
@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         fullstamina = 50;
-        fortune = 1;
+        fortune = 0;
         breakingpower = 1;
         coins = 100;
         stamina = fullstamina;

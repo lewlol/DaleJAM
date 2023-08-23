@@ -99,28 +99,56 @@ public class MiningScript : MonoBehaviour
 
     private void BlockStats(RaycastHit2D hit)
     {
-        // when a block is broken
+       
 
         PlayerMovement.stamina--;
-
+        int fortuneLevel = PlayerMovement.fortune;
 
         TileDataPlaceholder tdp = hit.collider.gameObject.GetComponent<TileDataPlaceholder>();
-        Inventory.Totalcoins += tdp.thisTile.coinWorth;
+        int coinWorth = tdp.thisTile.coinWorth;
 
-        if (tdp.thisTile.tileType == TileTypes.Rock)
+        //5% chance every level
+        float chanceForDoubleDrop = 0.05f * fortuneLevel; 
+
+        if (Random.value <= chanceForDoubleDrop) // Check if the player gets double drops
         {
-            Inventory.Rocks++;
-            Inventory.Rockcoins += tdp.thisTile.coinWorth;
+            Inventory.Totalcoins += coinWorth * 2;
+
+            if (tdp.thisTile.tileType == TileTypes.Rock)
+            {
+                Inventory.Rocks += 2;
+                Inventory.Rockcoins += coinWorth * 2;
+            }
+            else if (tdp.thisTile.tileType == TileTypes.Ore)
+            {
+                Inventory.Ores += 2;
+                Inventory.Orescoins += coinWorth * 2;
+            }
+            else if (tdp.thisTile.tileType == TileTypes.Gemstone)
+            {
+                Inventory.Gemstones += 2;
+                Inventory.Gemstonecoins += coinWorth * 2;
+            }
         }
-        else if (tdp.thisTile.tileType == TileTypes.Ore)
+        else // Regular drop
         {
-            Inventory.Ores++;
-            Inventory.Orescoins += tdp.thisTile.coinWorth;
-        }
-        else if (tdp.thisTile.tileType == TileTypes.Gemstone)
-        {
-            Inventory.Gemstones++;
-            Inventory.Gemstonecoins += tdp.thisTile.coinWorth;
+            Inventory.Totalcoins += coinWorth;
+
+            if (tdp.thisTile.tileType == TileTypes.Rock)
+            {
+                Inventory.Rocks++;
+                Inventory.Rockcoins += coinWorth;
+            }
+            else if (tdp.thisTile.tileType == TileTypes.Ore)
+            {
+                Inventory.Ores++;
+                Inventory.Orescoins += coinWorth;
+            }
+            else if (tdp.thisTile.tileType == TileTypes.Gemstone)
+            {
+                Inventory.Gemstones++;
+                Inventory.Gemstonecoins += coinWorth;
+            }
         }
     }
 }

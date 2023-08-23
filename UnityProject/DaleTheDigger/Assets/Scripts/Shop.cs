@@ -109,7 +109,7 @@ public class Shop : MonoBehaviour
         {
             PlayerMovement.coins-= fortunecost;
             fortunelevel++;
-            PlayerMovement.fortune += 5;
+            PlayerMovement.fortune += 1;
             fortunecost += 20;
         }
 
