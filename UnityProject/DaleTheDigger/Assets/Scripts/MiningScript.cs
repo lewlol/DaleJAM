@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 public class MiningScript : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class MiningScript : MonoBehaviour
 
     public GameObject outofstaminaui;
     public TextMeshProUGUI insufficientPowerText;
+
+    private bool isInsufficientPowerTextActive = false;
+    private Coroutine insufficientPowerCoroutine;
 
     private void Update()
     {
@@ -61,10 +65,13 @@ public class MiningScript : MonoBehaviour
                     }
                     else
                     {
-                        insufficientPowerText.gameObject.SetActive(true);
-                        Invoke("HideInsufficientPowerText", 2.0f);
+                        if (!isInsufficientPowerTextActive)
+                        {
+                            insufficientPowerText.gameObject.SetActive(true);
+                            insufficientPowerCoroutine = StartCoroutine(HideInsufficientPowerTextAfterDelay());
+                            isInsufficientPowerTextActive = true;
+                        }
                         Debug.Log("Pickaxe not strong enough to break this block!");
-                       
                     }
                 }
                 else
@@ -116,8 +123,6 @@ public class MiningScript : MonoBehaviour
 
     private void BlockStats(RaycastHit2D hit)
     {
-       
-
         PlayerMovement.stamina--;
         int fortuneLevel = PlayerMovement.fortune;
 
@@ -125,7 +130,7 @@ public class MiningScript : MonoBehaviour
         int coinWorth = tdp.thisTile.coinWorth;
 
         //5% chance every level
-        float chanceForDoubleDrop = 0.05f * fortuneLevel; 
+        float chanceForDoubleDrop = 0.05f * fortuneLevel;
 
         if (Random.value <= chanceForDoubleDrop) // Check if the player gets double drops
         {
@@ -167,5 +172,12 @@ public class MiningScript : MonoBehaviour
                 Inventory.Gemstonecoins += coinWorth;
             }
         }
+    }
+
+    private IEnumerator HideInsufficientPowerTextAfterDelay()
+    {
+        yield return new WaitForSeconds(2.0f);
+        insufficientPowerText.gameObject.SetActive(false);
+        isInsufficientPowerTextActive = false;
     }
 }
