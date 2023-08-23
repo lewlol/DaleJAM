@@ -146,8 +146,13 @@ public class MiningScript : MonoBehaviour
 
 
     private void BlockStats(RaycastHit2D hit)
-    {      
-        PlayerMovement.stamina--;
+    {
+        float currentStaminaChance = Mathf.Clamp(Artefacts.staminachance, 0.0f, 1.0f);
+        if (Random.value <= currentStaminaChance)
+        {
+            PlayerMovement.stamina--;
+        }
+
         int fortuneLevel = PlayerMovement.fortune;
 
         TileDataPlaceholder tdp = hit.collider.gameObject.GetComponent<TileDataPlaceholder>();
