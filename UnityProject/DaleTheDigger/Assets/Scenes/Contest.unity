@@ -1043,37 +1043,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &476812006
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 476812007}
-  m_Layer: 0
-  m_Name: DepthMeter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &476812007
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 476812006}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.03, y: 4.98, z: 2.809937}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 18
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &498511501
 GameObject:
   m_ObjectHideFlags: 0
@@ -1938,7 +1907,7 @@ GameObject:
   - component: {fileID: 1050487353}
   - component: {fileID: 1050487352}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: DepthMeter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10777,3 +10746,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3826269858592885383}
   m_CullTransparentMesh: 1
+--- !u!1001 &7194431267877629477
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7194431267807739074, guid: 78a11ccae4e5a4142a7445f6d3c25ee8, type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194431267807739074, guid: 78a11ccae4e5a4142a7445f6d3c25ee8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194431267807739074, guid: 78a11ccae4e5a4142a7445f6d3c25ee8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194431267807739074, guid: 78a11ccae4e5a4142a7445f6d3c25ee8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.809937
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194431267807739074, guid: 78a11ccae4e5a4142a7445f6d3c25ee8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194431267807739074, guid: 78a11ccae4e5a4142a7445f6d3c25ee8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194431267807739074, guid: 78a11ccae4e5a4142a7445f6d3c25ee8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194431267807739074, guid: 78a11ccae4e5a4142a7445f6d3c25ee8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194431267807739074, guid: 78a11ccae4e5a4142a7445f6d3c25ee8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194431267807739074, guid: 78a11ccae4e5a4142a7445f6d3c25ee8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194431267807739074, guid: 78a11ccae4e5a4142a7445f6d3c25ee8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194431267807739075, guid: 78a11ccae4e5a4142a7445f6d3c25ee8, type: 3}
+      propertyPath: m_Name
+      value: DepthMeter
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194431267807739085, guid: 78a11ccae4e5a4142a7445f6d3c25ee8, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 362119709}
+    - target: {fileID: 7194431267807739085, guid: 78a11ccae4e5a4142a7445f6d3c25ee8, type: 3}
+      propertyPath: depthText
+      value: 
+      objectReference: {fileID: 1050487352}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 78a11ccae4e5a4142a7445f6d3c25ee8, type: 3}
