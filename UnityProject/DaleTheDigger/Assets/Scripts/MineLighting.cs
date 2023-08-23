@@ -10,6 +10,7 @@ public class MineLighting : MonoBehaviour
 
     public Light2D Light;
     public GameObject shadow;
+    public GameObject helmet;
 
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -17,12 +18,14 @@ public class MineLighting : MonoBehaviour
 
         Light.intensity = 0f;
         shadow.SetActive(false);
+        helmet.SetActive(true);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         Light.intensity = 1f;
         shadow.SetActive(true);
+        helmet.SetActive(false);
     }
 
     // Start is called before the first frame update
@@ -30,6 +33,7 @@ public class MineLighting : MonoBehaviour
     {
         Light.intensity = 1f;
         shadow.SetActive(true);
+        helmet.SetActive(false);
     }
 
  
