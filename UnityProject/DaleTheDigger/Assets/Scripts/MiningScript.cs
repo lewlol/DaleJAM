@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class MiningScript : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class MiningScript : MonoBehaviour
     private Vector3 originalBlockPosition;
 
     public GameObject outofstaminaui;
+    public TextMeshProUGUI insufficientPowerText;
 
     private void Update()
     {
@@ -39,15 +41,30 @@ public class MiningScript : MonoBehaviour
 
                 if (PlayerMovement.stamina > 0) // Check if the player has enough stamina
                 {
-                    holdTimer += Time.deltaTime;
+                    // Additional check for breaking power
+                    TileDataPlaceholder tdp = hit.collider.gameObject.GetComponent<TileDataPlaceholder>();
+                    int requiredBreakingPower = tdp.thisTile.breakingpower;
+                    int playerBreakingPower = PlayerMovement.breakingpower;
 
-                    if (holdTimer >= holdDuration)
+                    if (playerBreakingPower >= requiredBreakingPower) // Player has enough breaking power
                     {
-                        BlockStats(hit);
-                        Destroy(hit.collider.gameObject);
-                        RestoreOriginalMaterial();
-                        isHolding = false;
-                        holdTimer = 0.0f;
+                        holdTimer += Time.deltaTime;
+
+                        if (holdTimer >= holdDuration)
+                        {
+                            BlockStats(hit);
+                            Destroy(hit.collider.gameObject);
+                            RestoreOriginalMaterial();
+                            isHolding = false;
+                            holdTimer = 0.0f;
+                        }
+                    }
+                    else
+                    {
+                        insufficientPowerText.gameObject.SetActive(true);
+                        Invoke("HideInsufficientPowerText", 2.0f);
+                        Debug.Log("Pickaxe not strong enough to break this block!");
+                       
                     }
                 }
                 else
