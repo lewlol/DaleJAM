@@ -4612,6 +4612,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3569117739720073806, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
+      propertyPath: outofstaminaui
+      value: 
+      objectReference: {fileID: 550477027}
+    - target: {fileID: 3569117739720073806, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
+      propertyPath: highlightMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 92b3309436ff17a42966a764ad3e88ee, type: 2}
     m_RemovedComponents: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3569117739720073777, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
