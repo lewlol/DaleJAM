@@ -10,9 +10,12 @@ public class BombScript : MonoBehaviour
 
     public MeshTextAppear mta;
 
+    private bool canThrowBomb = true; // Add this variable
+    private float throwCooldown = 3.0f; // Add this variable
+
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && canThrowBomb && Inventory.bombs > 0) // Check if the player has bombs and cooldown is over
         {
             ThrowBomb();
         }
@@ -20,6 +23,9 @@ public class BombScript : MonoBehaviour
 
     private void ThrowBomb()
     {
+        canThrowBomb = false; // Disable bomb throwing
+        Inventory.bombs--; // Decrement the bomb count
+
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0.0f;
 
@@ -44,11 +50,14 @@ public class BombScript : MonoBehaviour
             if (collider.CompareTag("Block"))
             {
                 CollectAndDestroyBlock(collider.gameObject);
-                mta.GenerateText(collider.gameObject.transform.position, 2f, "+1 " +  collider.gameObject.GetComponent<TileDataPlaceholder>().thisTile.name, 30);
+                mta.GenerateText(collider.gameObject.transform.position, 2f, "+1 " + collider.gameObject.GetComponent<TileDataPlaceholder>().thisTile.name, 30);
             }
         }
 
         Destroy(bomb);
+
+        yield return new WaitForSeconds(throwCooldown); // Add this line
+        canThrowBomb = true; // Re-enable bomb throwing
     }
 
     private void CollectAndDestroyBlock(GameObject block)
