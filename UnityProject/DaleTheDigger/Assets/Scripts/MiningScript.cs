@@ -5,7 +5,7 @@ using System.Collections;
 public class MiningScript : MonoBehaviour
 {
     public float holdDuration = 2f;
-    //public Material highlightMaterial;
+
 
     private GameObject lastHighlightedBlock;
     private Material originalMaterial;
@@ -38,6 +38,12 @@ public class MiningScript : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
         if (lastHighlightedBlock != null && lastHighlightedBlock != hit.collider?.gameObject)
+        {
+            RestoreOriginalMaterial();
+            isHolding = false;
+            holdTimer = 0.0f;
+        }
+        if (lastHighlightedBlock != null && !IsInRange(lastHighlightedBlock))
         {
             RestoreOriginalMaterial();
             isHolding = false;
@@ -144,7 +150,6 @@ public class MiningScript : MonoBehaviour
             lastHighlightedBlock = block;
 
             originalMaterial = block.GetComponent<Renderer>().material;
-           // block.GetComponent<Renderer>().material = highlightMaterial;
             originalPosition = block.transform.position;
 
             // Get the child object and enable it
