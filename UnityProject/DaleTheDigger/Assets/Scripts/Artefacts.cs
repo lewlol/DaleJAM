@@ -35,6 +35,7 @@ public class Artefacts : MonoBehaviour
     public static int Artefact3Level = 0;
     public GameObject Artefact3Sprite;
     public Image ArtefactLevelIcon3;
+    public static float miningrange = 2f;
 
     //Artefact4 Mining Speed
     public static string Artefact4;
@@ -55,6 +56,8 @@ public class Artefacts : MonoBehaviour
         Artefact2Sprite.SetActive(false);
         Artefact3Sprite.SetActive(false);
         Artefact4Sprite.SetActive(false);
+        staminachance = 1;
+        miningrange = 2f;
 
 
     }
@@ -155,33 +158,39 @@ public class Artefacts : MonoBehaviour
     {
         if (Artefact3Level == 0)
         {
-          //  Artefact3Sprite.SetActive(false);
-         //   ArtefactLevelIcon3.sprite = locked;
+            //  Artefact3Sprite.SetActive(false);
+            //   ArtefactLevelIcon3.sprite = locked;
+            miningrange = 2f;
         }
         else if (Artefact3Level == 1)
         {
-           // Artefact3Sprite.SetActive(true);
-           // ArtefactLevelIcon3.sprite = Level1;
+            // Artefact3Sprite.SetActive(true);
+            // ArtefactLevelIcon3.sprite = Level1;
+            miningrange = 2.5f;
         }
         else if (Artefact3Level == 2)
         {
-           // Artefact3Sprite.SetActive(true);
-           // ArtefactLevelIcon3.sprite = Level2;
+            // Artefact3Sprite.SetActive(true);
+            // ArtefactLevelIcon3.sprite = Level2;
+            miningrange = 3f;
         }
         else if (Artefact3Level == 3)
         {
-           // Artefact3Sprite.SetActive(true);
-           // ArtefactLevelIcon3.sprite = Level3;
+            // Artefact3Sprite.SetActive(true);
+            // ArtefactLevelIcon3.sprite = Level3;
+            miningrange = 3.5f;
         }
         else if (Artefact3Level == 4)
         {
-          //  Artefact3Sprite.SetActive(true);
-           // ArtefactLevelIcon3.sprite = Level4;
+            //  Artefact3Sprite.SetActive(true);
+            // ArtefactLevelIcon3.sprite = Level4;
+            miningrange = 4f;
         }
         else if (Artefact3Level == 5)
         {
-          //  Artefact3Sprite.SetActive(true);
-           // ArtefactLevelIcon3.sprite = Level5;
+            //  Artefact3Sprite.SetActive(true);
+            // ArtefactLevelIcon3.sprite = Level5;
+            miningrange = 5f;
         }
         else
         {

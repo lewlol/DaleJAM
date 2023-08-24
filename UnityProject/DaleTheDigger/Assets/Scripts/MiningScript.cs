@@ -4,7 +4,6 @@ using System.Collections;
 
 public class MiningScript : MonoBehaviour
 {
-    public float miningRange = 2.0f;
     public float holdDuration = 2.0f;
     public Material highlightMaterial;
 
@@ -117,7 +116,7 @@ public class MiningScript : MonoBehaviour
     private bool IsInRange(GameObject block)
     {
         float distance = Vector2.Distance(transform.position, block.transform.position);
-        return distance <= miningRange;
+        return distance <= Artefacts.miningrange;
     }
 
     private void HighlightBlock(GameObject block)
