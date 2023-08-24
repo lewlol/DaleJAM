@@ -182,22 +182,22 @@ public class WorldGeneration : MonoBehaviour
                     spawnPosition = new Vector3(x, -y, 0);
 
                     //DeterminePossibleSpawn
-                    if (noiseTexture.GetPixel(x + 1, -y).r < 0.5)
+                    if (noiseTexture.GetPixel(x + 1, y).r < 0.5)
                     {
                         gemSprite = 2; //Right
                         SpawnGem();
                     }
-                    else if (noiseTexture.GetPixel(x - 1, -y).r < 0.5)
+                    else if (noiseTexture.GetPixel(x - 1, y).r < 0.5)
                     {
                         gemSprite = 3; //Left
                         SpawnGem();
                     }
-                    else if (noiseTexture.GetPixel(x, -y + 1).r < 0.5)
+                    else if (noiseTexture.GetPixel(x, y + 1).r < 0.5)
                     {
                         gemSprite = 0; //Normal
                         SpawnGem();
                     }
-                    else if (noiseTexture.GetPixel(x, -y - 1).r < 0.5)
+                    else if (noiseTexture.GetPixel(x, y - 1).r < 0.5)
                     {
                         gemSprite = 1; //Down
                         SpawnGem();
