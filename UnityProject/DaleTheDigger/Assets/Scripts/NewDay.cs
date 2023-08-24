@@ -5,9 +5,6 @@ using TMPro;
 
 public class NewDay : MonoBehaviour
 {
-
-
-    public GameObject sleepprompt;
     public GameObject sleepui;
     public GameObject otherui;
     public static int day;
@@ -26,12 +23,14 @@ public class NewDay : MonoBehaviour
     public GameObject outofstaminaui;
 
     public GameObject worldGen;
+
+    public HealthStamUI hs;
+    bool inRadius;
     void Start()
     {
         day = 1;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Playercoins.text = "Coins " + PlayerMovement.coins;
@@ -43,7 +42,8 @@ public class NewDay : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            sleepprompt.SetActive(true);
+            inRadius = true;
+            worldGen.GetComponent<Indicator>().EnableIndicator(true, 0f, "Press B to Sleep");
         }
     }
 
@@ -51,13 +51,14 @@ public class NewDay : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            sleepprompt.SetActive(false);
+            inRadius = false;
+            worldGen.GetComponent<Indicator>().DisableIndicator();
         }
     }
 
     void enterhome()
     {
-        if (sleepprompt.activeSelf && Input.GetKeyDown(KeyCode.B))
+        if (inRadius && Input.GetKeyDown(KeyCode.B))
         {
             sleepui.SetActive(true);
             otherui.SetActive(false);
@@ -87,6 +88,9 @@ public class NewDay : MonoBehaviour
         PlayerMovement.stamina = PlayerMovement.fullstamina;
         outofstaminaui.SetActive(false);
 
+        hs.UpdateStaminaUI();
+        hs.UpdateHealthUI();
+
         WorldGeneration wg = GameObject.Find("WorldGenerationManager").GetComponent<WorldGeneration>();
 
         //Delete Previous World Gen
@@ -96,6 +100,4 @@ public class NewDay : MonoBehaviour
         }
         wg.NewDay();
     }
-
-
 }

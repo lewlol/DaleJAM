@@ -23,6 +23,7 @@ public class MiningScript : MonoBehaviour
     public Texture2D pickaxecorsortexture;
 
     public MeshTextAppear tma;
+    public HealthStamUI hs;
     int amountDropped;
     private void Start()
     {
@@ -92,18 +93,14 @@ public class MiningScript : MonoBehaviour
                     }
                     else
                     {
-                        if (!isInsufficientPowerTextActive)
-                        {
-                            insufficientPowerText.gameObject.SetActive(true);
-                            insufficientPowerCoroutine = StartCoroutine(HideInsufficientPowerTextAfterDelay());
-                            isInsufficientPowerTextActive = true;
-                        }
                         Debug.Log("Pickaxe not strong enough to break this block!");
+                        tma.gameObject.GetComponent<Indicator>().EnableIndicator(false, 5f, "Pickaxe not strong enough to break this block!");
                     }
                 }
                 else
                 {
                     Debug.Log("Not enough stamina to break this block!");
+                    tma.gameObject.GetComponent<Indicator>().EnableIndicator(false, 5f, "Not enough stamina to break this block!");
                     outofstaminaui.SetActive(true);
                 }
             }
@@ -186,6 +183,7 @@ public class MiningScript : MonoBehaviour
         if (Random.value <= currentStaminaChance)
         {
             PlayerMovement.stamina--;
+            hs.UpdateStaminaUI();
         }
 
         int fortuneLevel = PlayerMovement.fortune;
@@ -236,13 +234,6 @@ public class MiningScript : MonoBehaviour
                 Inventory.Gemstonecoins += coinWorth;
             }
         }
-    }
-
-    private IEnumerator HideInsufficientPowerTextAfterDelay()
-    {
-        yield return new WaitForSeconds(2.0f);
-        insufficientPowerText.gameObject.SetActive(false);
-        isInsufficientPowerTextActive = false;
     }
 
     public IEnumerator DestroyDelay(RaycastHit2D hit)

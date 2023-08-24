@@ -32,9 +32,7 @@ public class Shop : MonoBehaviour
     public TextMeshProUGUI fortunecosttext;
     public TextMeshProUGUI pickaxecosttext;
 
-
-
-
+    public GameObject wg;
 
     private void Start()
     {
@@ -49,6 +47,7 @@ public class Shop : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             ShopPrompt.SetActive(true);
+            wg.GetComponent<Indicator>().EnableIndicator(true, 0f, "Press B to Open Shop");
         }
     }
 
@@ -59,6 +58,7 @@ public class Shop : MonoBehaviour
             ShopPrompt.SetActive(false);
             shoppanel.SetActive(false);
             otherui.SetActive(true);
+            wg.GetComponent<Indicator>().DisableIndicator();
         }
     }
 
@@ -124,5 +124,12 @@ public class Shop : MonoBehaviour
             PlayerMovement.breakingpower += 1;
             pickaxecost += 500;
         }
+    }
+
+    public void CloseMenu()
+    {
+        ShopPrompt.SetActive(false);
+        shoppanel.SetActive(false);
+        otherui.SetActive(true);
     }
 }

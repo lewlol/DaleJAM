@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 public class BombScript : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class BombScript : MonoBehaviour
     public float bombTimer = 2.0f;
 
     public MeshTextAppear mta;
+    public TextMeshProUGUI bombCount;
 
     private bool canThrowBomb = true; // Add this variable
     private float throwCooldown = 3.0f; // Add this variable
@@ -37,6 +39,7 @@ public class BombScript : MonoBehaviour
         bombRb.velocity = throwDirection * bombForce;
 
         StartCoroutine(ExplodeAfterDelay(bomb));
+        bombCount.text = Inventory.bombs.ToString();
     }
 
     private IEnumerator ExplodeAfterDelay(GameObject bomb)
