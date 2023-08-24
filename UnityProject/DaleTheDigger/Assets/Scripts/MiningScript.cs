@@ -115,7 +115,21 @@ public class MiningScript : MonoBehaviour
 
     private bool IsInRange(GameObject block)
     {
-        float distance = Vector2.Distance(transform.position, block.transform.position);
+        Vector3 playerPosition = transform.position;
+        Vector3 targetPosition = block.transform.position;
+        Vector3 direction = targetPosition - playerPosition;
+        float distance = Vector3.Distance(playerPosition, targetPosition);
+
+        RaycastHit2D[] hits = Physics2D.RaycastAll(playerPosition, direction, distance);
+
+        foreach (RaycastHit2D hit in hits)
+        {
+            if (hit.collider.CompareTag("Block") && hit.collider.gameObject != block)
+            {
+                return false; 
+            }
+        }
+
         return distance <= Artefacts.miningrange;
     }
 

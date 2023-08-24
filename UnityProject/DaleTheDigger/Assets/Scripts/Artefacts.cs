@@ -59,7 +59,7 @@ public class Artefacts : MonoBehaviour
         Artefact4Sprite.SetActive(false);
         staminachance = 1;
         miningrange = 2f;
-        shopdiscount = 0f
+        shopdiscount = 0f;
 
 
     }
