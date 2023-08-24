@@ -17,7 +17,7 @@ public class Artefacts : MonoBehaviour
 
 
     //Artefact1 Stamina decrease
-    public static string Artefact1;
+    public static string Artefact1 = "Lews Curdled Milk";
     public static int Artefact1Level = 0;
     public GameObject Artefact1Sprite;
     public Image ArtefactLevelIcon1;
