@@ -17,6 +17,10 @@ public class Shop : MonoBehaviour
     public int pickaxelevel;
     public int pickaxecost = 500;
 
+    //Artefact
+    private int discountedPickaxeCost;
+    private int discountedStaminaCost;
+    private int discountedFortuneCost;
 
 
 
@@ -62,10 +66,7 @@ public class Shop : MonoBehaviour
     {
         openshop();
         shopstats();
-
-        
     }
-
 
     void openshop()
     {
@@ -73,17 +74,18 @@ public class Shop : MonoBehaviour
         {
             shoppanel.SetActive(true);
             otherui.SetActive(false);
-
         }
     }
 
     void shopstats()
     {
-        pickaxecosttext.text = pickaxecost + " Coins";
-        staminacosttext.text = staminacost + " Coins";
-        fortunecosttext.text = fortunecost + " Coins";
+         discountedPickaxeCost = (int)(pickaxecost * (1.0f - Artefacts.shopdiscount));
+         discountedStaminaCost = (int)(staminacost * (1.0f - Artefacts.shopdiscount));
+         discountedFortuneCost = (int)(fortunecost * (1.0f - Artefacts.shopdiscount));
 
-
+        pickaxecosttext.text = discountedPickaxeCost + " Coins";
+        staminacosttext.text = discountedStaminaCost + " Coins";
+        fortunecosttext.text = discountedFortuneCost + " Coins";
 
         staminaleveltext.text = "Level: " + staminalevel;
         pickaxeleveltext.text = "Level: " + pickaxelevel;
@@ -93,40 +95,34 @@ public class Shop : MonoBehaviour
 
     public void staminabutton()
     {
-        if (PlayerMovement.coins >= staminacost)
+        if (PlayerMovement.coins >= discountedStaminaCost)
         {
-            PlayerMovement.coins -= staminacost;
+            PlayerMovement.coins -= discountedStaminaCost;
             staminalevel++;
             PlayerMovement.fullstamina += 5;
             staminacost += 20;
         }
-        
     }
 
     public void fortunebutton()
     {
-        if(PlayerMovement.coins >= fortunecost)
+        if (PlayerMovement.coins >= discountedFortuneCost)
         {
-            PlayerMovement.coins-= fortunecost;
+            PlayerMovement.coins -= discountedFortuneCost;
             fortunelevel++;
             PlayerMovement.fortune += 1;
             fortunecost += 20;
         }
-
-        
     }
 
     public void breakingbutton()
     {
-        if(PlayerMovement.coins >= pickaxecost)
+        if (PlayerMovement.coins >= discountedPickaxeCost)
         {
-            PlayerMovement.coins -= pickaxecost;
+            PlayerMovement.coins -= discountedPickaxeCost;
             pickaxelevel++;
             PlayerMovement.breakingpower += 1;
             pickaxecost += 500;
         }
-       
     }
-
-
 }

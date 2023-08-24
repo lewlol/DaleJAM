@@ -29,6 +29,7 @@ public class Artefacts : MonoBehaviour
     public static int Artefact2Level = 0;
     public GameObject Artefact2Sprite;
     public Image ArtefactLevelIcon2;
+    public static float shopdiscount = 0f;
 
     //Artefact3 Mining Range
     public static string Artefact3;
@@ -58,6 +59,7 @@ public class Artefacts : MonoBehaviour
         Artefact4Sprite.SetActive(false);
         staminachance = 1;
         miningrange = 2f;
+        shopdiscount = 0f
 
 
     }
@@ -121,33 +123,40 @@ public class Artefacts : MonoBehaviour
     {
         if (Artefact2Level == 0)
         {
-          //  Artefact2Sprite.SetActive(false);
-         //   ArtefactLevelIcon2.sprite = locked;
+            //  Artefact2Sprite.SetActive(false);
+            //   ArtefactLevelIcon2.sprite = locked;
+            shopdiscount = 0f;
         }
         else if (Artefact2Level == 1)
         {
-           // Artefact2Sprite.SetActive(true);
-          //  ArtefactLevelIcon2.sprite = Level1;
+            // Artefact2Sprite.SetActive(true);
+            //  ArtefactLevelIcon2.sprite = Level1;
+            shopdiscount = 0.1f;
         }
         else if (Artefact2Level == 2)
         {
-           // Artefact2Sprite.SetActive(true);
-          //  ArtefactLevelIcon2.sprite = Level2;
+            // Artefact2Sprite.SetActive(true);
+            //  ArtefactLevelIcon2.sprite = Level2;
+            shopdiscount = 0.15f;
         }
         else if (Artefact2Level == 3)
         {
-           // Artefact2Sprite.SetActive(true);
-          //  ArtefactLevelIcon2.sprite = Level3;
+            // Artefact2Sprite.SetActive(true);
+            //  ArtefactLevelIcon2.sprite = Level3;
+            shopdiscount = 0.2f;
+          
         }
         else if (Artefact2Level == 4)
         {
-           // Artefact2Sprite.SetActive(true);
-           // ArtefactLevelIcon2.sprite = Level4;
+            // Artefact2Sprite.SetActive(true);
+            // ArtefactLevelIcon2.sprite = Level4;
+            shopdiscount = 0.25f;
         }
         else if (Artefact2Level == 5)
         {
-           // Artefact2Sprite.SetActive(true);
-           // ArtefactLevelIcon2.sprite = Level5;
+            // Artefact2Sprite.SetActive(true);
+            // ArtefactLevelIcon2.sprite = Level5;
+            shopdiscount = 0.3f;
         }
         else
         {

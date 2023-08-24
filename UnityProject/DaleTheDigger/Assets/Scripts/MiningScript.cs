@@ -4,7 +4,7 @@ using System.Collections;
 
 public class MiningScript : MonoBehaviour
 {
-    public float holdDuration = 2.0f;
+    public float holdDuration = 2f;
     public Material highlightMaterial;
 
     private GameObject lastHighlightedBlock;
