@@ -22,12 +22,15 @@ public class MiningScript : MonoBehaviour
     private Vector3 originalPosition; // Store the original position of the block
     private Vector3 shakeOffset; // Store the current shake offset
 
+    public Texture2D pickaxecorsortexture;
+
     public MeshTextAppear tma;
     int amountDropped;
     private void Start()
     {
         originalPosition = Vector3.zero; // Initialize originalPosition
         shakeOffset = Vector3.zero; // Initialize shakeOffset
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
 
     private void Update()
@@ -143,6 +146,7 @@ public class MiningScript : MonoBehaviour
             originalMaterial = block.GetComponent<Renderer>().material;
             block.GetComponent<Renderer>().material = block.GetComponent<Renderer>().material; // Use the outline material here
             originalPosition = block.transform.position; // Store the original position
+            Cursor.SetCursor(pickaxecorsortexture, Vector2.zero, CursorMode.Auto);
         }
     }
 
@@ -154,6 +158,7 @@ public class MiningScript : MonoBehaviour
             //lastHighlightedBlock.GetComponentInChildren<SpriteRenderer>().enabled = false;
             lastHighlightedBlock.transform.position = originalPosition; // Restore the original position
             lastHighlightedBlock = null;
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
     }
 

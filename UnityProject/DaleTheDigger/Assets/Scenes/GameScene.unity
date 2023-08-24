@@ -7720,6 +7720,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 3d8fdcc482af592498e87f0b051de912, type: 2}
     - target: {fileID: 3569117739720073806, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
+      propertyPath: pickaxecorsortexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 7174f0b1ecf28104998a2df3ba963296, type: 3}
+    - target: {fileID: 3569117739720073806, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
       propertyPath: insufficientPowerText
       value: 
       objectReference: {fileID: 575214102}
