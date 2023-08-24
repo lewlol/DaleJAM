@@ -5355,7 +5355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c539001da6e867743ad11a96f4e61a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  otherui: {fileID: 3826269857175361129}
+  otherui: {fileID: 187361709}
   shoppanel: {fileID: 160413341}
   ShopPrompt: {fileID: 1199873917}
   staminalevel: 0
@@ -8810,7 +8810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sleepprompt: {fileID: 3826269857676515067}
   sleepui: {fileID: 445348597}
-  otherui: {fileID: 3826269857175361129}
+  otherui: {fileID: 187361709}
   Endofday: {fileID: 2100925734}
   RockTotal: {fileID: 1483475460}
   RockCoins: {fileID: 2067252254}
