@@ -210,7 +210,7 @@ public class WorldGeneration : MonoBehaviour
     public void SpawnGem()
     {
         int spawnChance = Random.Range(0, 101);
-        if (spawnChance > 98)
+        if (spawnChance > 99)
         {    
             GameObject gem = Instantiate(gemstoneTile, spawnPosition, Quaternion.identity);
             TileDataPlaceholder tt = gem.GetComponent<TileDataPlaceholder>();
