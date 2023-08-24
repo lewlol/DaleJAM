@@ -316,8 +316,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 64a5517977ca27142bdcd8995d40e1e2, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 4440523e26d9a0c45a1d664a9e6bfaf8, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -5371,6 +5371,7 @@ MonoBehaviour:
   staminacosttext: {fileID: 1469702393}
   fortunecosttext: {fileID: 99602788}
   pickaxecosttext: {fileID: 222570697}
+  wg: {fileID: 0}
 --- !u!1 &1027831488
 GameObject:
   m_ObjectHideFlags: 0
@@ -8808,7 +8809,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a0736f5283bac49bea60e5370fb2d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sleepprompt: {fileID: 3826269857676515067}
   sleepui: {fileID: 445348597}
   otherui: {fileID: 187361709}
   Endofday: {fileID: 2100925734}
@@ -8822,6 +8822,7 @@ MonoBehaviour:
   Playercoins: {fileID: 1579371217}
   outofstaminaui: {fileID: 3826269856628012784}
   worldGen: {fileID: 1460740203}
+  hs: {fileID: 0}
 --- !u!61 &1360591881
 BoxCollider2D:
   m_ObjectHideFlags: 0

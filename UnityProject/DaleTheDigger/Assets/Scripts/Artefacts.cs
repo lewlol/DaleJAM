@@ -32,14 +32,14 @@ public class Artefacts : MonoBehaviour
     public static float shopdiscount;
 
     //Artefact3 Mining Range
-    public static string Artefact3 = "Radlyn's Step Ladder";
+    public static string Artefact3 = "Richael's Step Ladder";
     public static int Artefact3Level;
     public GameObject Artefact3Sprite;
     public Image ArtefactLevelIcon3;
     public static float miningrange;
 
     //Artefact4 Mining Speed
-    public static string Artefact4;
+    public static string Artefact4 = "Baldy's Sussy Vitamins";
     public static int Artefact4Level;
     public GameObject Artefact4Sprite;
     public Image ArtefactLevelIcon4;
