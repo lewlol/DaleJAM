@@ -5,7 +5,7 @@ using System.Collections;
 public class MiningScript : MonoBehaviour
 {
     public float holdDuration = 2f;
-    public Material highlightMaterial;
+    //public Material highlightMaterial;
 
     private GameObject lastHighlightedBlock;
     private Material originalMaterial;
@@ -144,23 +144,37 @@ public class MiningScript : MonoBehaviour
             lastHighlightedBlock = block;
 
             originalMaterial = block.GetComponent<Renderer>().material;
-            block.GetComponent<Renderer>().material = block.GetComponent<Renderer>().material; // Use the outline material here
-            originalPosition = block.transform.position; // Store the original position
+           // block.GetComponent<Renderer>().material = highlightMaterial;
+            originalPosition = block.transform.position;
+
+            // Get the child object and enable it
+            GameObject childObject = block.transform.GetChild(0).gameObject;
+            SpriteRenderer childSpriteRenderer = childObject.GetComponent<SpriteRenderer>();
+            childSpriteRenderer.enabled = true;
+
+            // Change the cursor to the custom texture
             Cursor.SetCursor(pickaxecorsortexture, Vector2.zero, CursorMode.Auto);
         }
     }
 
-    private void RestoreOriginalMaterial()
+ private void RestoreOriginalMaterial()
+{
+    if (lastHighlightedBlock != null && originalMaterial != null)
     {
-        if (lastHighlightedBlock != null && originalMaterial != null)
-        {
-            lastHighlightedBlock.GetComponent<Renderer>().material = originalMaterial;
-            //lastHighlightedBlock.GetComponentInChildren<SpriteRenderer>().enabled = false;
-            lastHighlightedBlock.transform.position = originalPosition; // Restore the original position
-            lastHighlightedBlock = null;
+        lastHighlightedBlock.GetComponent<Renderer>().material = originalMaterial;
+        lastHighlightedBlock.transform.position = originalPosition;
+
+        // Get the child object and disable it
+        GameObject childObject = lastHighlightedBlock.transform.GetChild(0).gameObject;
+            SpriteRenderer childSpriteRenderer = childObject.GetComponent<SpriteRenderer>();
+            childSpriteRenderer.enabled = false;
+
+            // Change the cursor back to the default
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-        }
+
+        lastHighlightedBlock = null;
     }
+}
 
 
     private void BlockStats(RaycastHit2D hit)
