@@ -25,7 +25,7 @@ public class Inventory : MonoBehaviour
         Orescoins = 0;
         Gemstonecoins = 0;
         Totalcoins = 0;
-        bombs = 0;
+        bombs = 3;
     }
 
     public static void newday()
