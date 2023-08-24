@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.Rendering.Universal;
 
 public class MiningScript : MonoBehaviour
 {
@@ -248,6 +249,11 @@ public class MiningScript : MonoBehaviour
     {
         hit.collider.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         hit.collider.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+
+        if(hit.collider.gameObject.GetComponentInChildren<Light2D>() != null)
+        {
+            hit.collider.gameObject.GetComponentInChildren<Light2D>().enabled = false;
+        }
         yield return new WaitForSeconds(2f);
         Destroy(hit.collider.gameObject);
     }

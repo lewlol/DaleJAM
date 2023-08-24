@@ -23,3 +23,4 @@ MonoBehaviour:
   loot: {fileID: 11400000, guid: 5ad9720ad406863418598ef1077493bc, type: 2}
   gemstones:
   - {fileID: 11400000, guid: 3ee0d5d2046a32e4b894f96b08228962, type: 2}
+  - {fileID: 11400000, guid: 5b981cbf21febfa49a233b1ffd39b10c, type: 2}

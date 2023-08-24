@@ -21,5 +21,5 @@ MonoBehaviour:
   - {fileID: -1439272131, guid: b9dc712810a5cb946b8cb9187855f6d0, type: 3}
   - {fileID: -946847346, guid: b9dc712810a5cb946b8cb9187855f6d0, type: 3}
   gemstoneGlow: {r: 1, g: 0.1745283, b: 0.1745283, a: 1}
-  breakingpower: 1
+  breakingpower: 0
   coinWorth: 8

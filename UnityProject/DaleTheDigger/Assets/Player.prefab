@@ -18,7 +18,8 @@ GameObject:
   - component: {fileID: -3844440955637170220}
   - component: {fileID: 162721869437356366}
   - component: {fileID: -8347216537957942191}
-  m_Layer: 0
+  - component: {fileID: -9188642812517662387}
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -149,11 +150,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd83aa0119f2fbf48b344c5dfd62496e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  miningRange: 2
-  holdDuration: 0.5
-  highlightMaterial: {fileID: 2100000, guid: e2bc3962a1abe06449a4ac11826254fb, type: 2}
   outofstaminaui: {fileID: 0}
   insufficientPowerText: {fileID: 0}
+  pickaxecorsortexture: {fileID: 0}
   tma: {fileID: 0}
 --- !u!114 &1085396894377041161
 MonoBehaviour:
@@ -243,6 +242,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 3569117739720073780}
   spawnpoint: {fileID: 0}
+--- !u!114 &-9188642812517662387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3569117739720073780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9c2542f8d753e458d8787e681c9e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombPrefab: {fileID: 1841685555116337765, guid: 82d2eb138be0d6a4683918959640fbe3, type: 3}
+  bombForce: 5
+  bombRadius: 2
+  bombTimer: 2
+  mta: {fileID: 0}
 --- !u!1 &3569117740535887253
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,7 +268,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3569117740535887252}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Playercenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3569117740944367026}
   - component: {fileID: 3569117740944367027}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pickaxe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,7 +384,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3569117740990560459}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -23,4 +23,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6744654119d60e6498c131e1e3e833e7, type: 2}
   loot: {fileID: 11400000, guid: 5ad9720ad406863418598ef1077493bc, type: 2}
   gemstones:
-  - {fileID: 11400000, guid: 3ee0d5d2046a32e4b894f96b08228962, type: 2}
+  - {fileID: 11400000, guid: af35380a0d5a6f74c8d6ab15422b279a, type: 2}
+  - {fileID: 11400000, guid: 3a85fbf85f3b3ee438e251b3e2191d0e, type: 2}
+  - {fileID: 11400000, guid: 258cbfde84232b94b9e9b92858409813, type: 2}

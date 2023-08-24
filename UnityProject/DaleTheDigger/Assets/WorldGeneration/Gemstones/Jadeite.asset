@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc9b9a14e2af1fd45b7562e2e1355778, type: 3}
   m_Name: Jadeite
   m_EditorClassIdentifier: 
-  tileName: 0
-  tileType: 0
+  tileName: 17
+  tileType: 2
   tileSprite: {fileID: 0}
-  gemSprite: []
-  gemstoneGlow: {r: 0, g: 0, b: 0, a: 0}
-  breakingpower: 0
-  coinWorth: 0
+  gemSprite:
+  - {fileID: -1233563205, guid: b9dc712810a5cb946b8cb9187855f6d0, type: 3}
+  - {fileID: -1957970593, guid: b9dc712810a5cb946b8cb9187855f6d0, type: 3}
+  - {fileID: -1340454350, guid: b9dc712810a5cb946b8cb9187855f6d0, type: 3}
+  - {fileID: 2122024909, guid: b9dc712810a5cb946b8cb9187855f6d0, type: 3}
+  gemstoneGlow: {r: 0, g: 1, b: 0.48977542, a: 1}
+  breakingpower: 2
+  coinWorth: 25
