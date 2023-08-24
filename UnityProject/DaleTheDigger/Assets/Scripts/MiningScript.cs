@@ -86,7 +86,10 @@ public class MiningScript : MonoBehaviour
                             holdTimer = 0.0f;
 
                             //Text 
-                            tma.GenerateText(blockpos, 1, "+" + amountDropped + " " + text, 30);
+                            if(hit.collider.gameObject.GetComponent<TileDataPlaceholder>().thisTile.tileType != TileTypes.Loot)
+                            {
+                                tma.GenerateText(blockpos, 1, "+" + amountDropped + " " + text, 30);
+                            }
 
                             StartCoroutine(DestroyDelay(hit));
                         }
@@ -190,6 +193,13 @@ public class MiningScript : MonoBehaviour
 
         TileDataPlaceholder tdp = hit.collider.gameObject.GetComponent<TileDataPlaceholder>();
         int coinWorth = tdp.thisTile.coinWorth;
+
+        //Check Chest First
+        if(tdp.thisTile.tileType == TileTypes.Loot)
+        {
+            hit.collider.gameObject.GetComponent<LootBag>().RollLoot();
+            return;
+        }
 
         //5% chance every level
         float chanceForDoubleDrop = 0.05f * fortuneLevel;

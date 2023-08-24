@@ -153,7 +153,7 @@ public class WorldGeneration : MonoBehaviour
                     if(noiseTexture.GetPixel(x, y + 1).r < 0.5)
                     {
                         int ran = Random.Range(0, 101);
-                        if (ran > 95) //5% Chance
+                        if (ran > 97) //3% Chance
                         {
                             GameObject loot = Instantiate(lootTile, spawnPosition, Quaternion.identity);
                             TileDataPlaceholder tt = loot.GetComponent<TileDataPlaceholder>();

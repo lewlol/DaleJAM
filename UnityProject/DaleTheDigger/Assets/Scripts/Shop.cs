@@ -6,7 +6,6 @@ public class Shop : MonoBehaviour
 {
     public GameObject otherui;
     public GameObject shoppanel;
-    public GameObject ShopPrompt;
 
     public int staminalevel;
     public int staminacost = 50;
@@ -33,6 +32,8 @@ public class Shop : MonoBehaviour
     public TextMeshProUGUI pickaxecosttext;
 
     public GameObject wg;
+    public GameObject stamUI;
+    bool inRadius;
 
     private void Start()
     {
@@ -46,8 +47,8 @@ public class Shop : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            ShopPrompt.SetActive(true);
             wg.GetComponent<Indicator>().EnableIndicator(true, 0f, "Press B to Open Shop");
+            inRadius = true;
         }
     }
 
@@ -55,10 +56,10 @@ public class Shop : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            ShopPrompt.SetActive(false);
             shoppanel.SetActive(false);
             otherui.SetActive(true);
             wg.GetComponent<Indicator>().DisableIndicator();
+            inRadius = false;
         }
     }
 
@@ -70,8 +71,9 @@ public class Shop : MonoBehaviour
 
     void openshop()
     {
-        if (ShopPrompt.activeSelf && Input.GetKeyDown(KeyCode.B))
+        if (inRadius && Input.GetKeyDown(KeyCode.B))
         {
+            wg.GetComponent<Indicator>().DisableIndicator();
             shoppanel.SetActive(true);
             otherui.SetActive(false);
         }
@@ -100,6 +102,8 @@ public class Shop : MonoBehaviour
             PlayerMovement.coins -= discountedStaminaCost;
             staminalevel++;
             PlayerMovement.fullstamina += 5;
+            PlayerMovement.stamina += 5;
+            stamUI.GetComponent<HealthStamUI>().UpdateStaminaUI();
             staminacost += 20;
         }
     }
@@ -128,7 +132,7 @@ public class Shop : MonoBehaviour
 
     public void CloseMenu()
     {
-        ShopPrompt.SetActive(false);
+        wg.GetComponent<Indicator>().EnableIndicator(true, 0f, "Press B to Open Shop");
         shoppanel.SetActive(false);
         otherui.SetActive(true);
     }

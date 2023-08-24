@@ -17,7 +17,7 @@ public class Indicator : MonoBehaviour
     }
     public void DisableIndicator()
     {
-        indicatorText.enabled = false;
+        indicatorText.text = null;
     }
 
     IEnumerator TurnOffIndicator(float time)

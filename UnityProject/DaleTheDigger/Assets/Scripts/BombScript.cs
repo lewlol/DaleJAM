@@ -21,6 +21,7 @@ public class BombScript : MonoBehaviour
         {
             ThrowBomb();
         }
+        bombCount.text = Inventory.bombs.ToString();
     }
 
     private void ThrowBomb()
@@ -38,8 +39,7 @@ public class BombScript : MonoBehaviour
 
         bombRb.velocity = throwDirection * bombForce;
 
-        StartCoroutine(ExplodeAfterDelay(bomb));
-        bombCount.text = Inventory.bombs.ToString();
+        StartCoroutine(ExplodeAfterDelay(bomb));    
     }
 
     private IEnumerator ExplodeAfterDelay(GameObject bomb)
