@@ -26,23 +26,24 @@ public class Artefacts : MonoBehaviour
 
     //Artefact2 Lower Shop Price
     public static string Artefact2;
-    public static int Artefact2Level = 0;
+    public static int Artefact2Level;
     public GameObject Artefact2Sprite;
     public Image ArtefactLevelIcon2;
-    public static float shopdiscount = 0f;
+    public static float shopdiscount;
 
     //Artefact3 Mining Range
     public static string Artefact3;
-    public static int Artefact3Level = 0;
+    public static int Artefact3Level;
     public GameObject Artefact3Sprite;
     public Image ArtefactLevelIcon3;
-    public static float miningrange = 2f;
+    public static float miningrange;
 
     //Artefact4 Mining Speed
     public static string Artefact4;
-    public static int Artefact4Level = 0;
+    public static int Artefact4Level;
     public GameObject Artefact4Sprite;
     public Image ArtefactLevelIcon4;
+    public static float Holdduration;
 
 
 
@@ -60,6 +61,7 @@ public class Artefacts : MonoBehaviour
         staminachance = 1;
         miningrange = 2f;
         shopdiscount = 0f;
+        Holdduration = 0.5f;
 
 
     }
@@ -210,33 +212,39 @@ public class Artefacts : MonoBehaviour
     {
         if (Artefact4Level == 0)
         {
-           // Artefact4Sprite.SetActive(false);
-           // ArtefactLevelIcon4.sprite = locked;
+            // Artefact4Sprite.SetActive(false);
+            // ArtefactLevelIcon4.sprite = locked;
+            Holdduration = 0.5f;
         }
         else if (Artefact4Level == 1)
         {
-          //  Artefact4Sprite.SetActive(true);
-           // ArtefactLevelIcon4.sprite = Level1;
+            //  Artefact4Sprite.SetActive(true);
+            // ArtefactLevelIcon4.sprite = Level1;
+            Holdduration = 0.45f;
         }
         else if (Artefact4Level == 2)
         {
-           // Artefact4Sprite.SetActive(true);
-           // ArtefactLevelIcon4.sprite = Level2;
+            // Artefact4Sprite.SetActive(true);
+            // ArtefactLevelIcon4.sprite = Level2;
+            Holdduration = 0.40f;
         }
         else if (Artefact4Level == 3)
         {
-          //  Artefact4Sprite.SetActive(true);
-          //  ArtefactLevelIcon4.sprite = Level3;
+            //  Artefact4Sprite.SetActive(true);
+            //  ArtefactLevelIcon4.sprite = Level3;
+            Holdduration = 0.35f;
         }
         else if (Artefact4Level == 4)
         {
-           // Artefact4Sprite.SetActive(true);
-           // ArtefactLevelIcon4.sprite = Level4;
+            // Artefact4Sprite.SetActive(true);
+            // ArtefactLevelIcon4.sprite = Level4;
+            Holdduration = 0.3f;
         }
         else if (Artefact4Level == 5)
         {
-           // Artefact4Sprite.SetActive(true);
-           // ArtefactLevelIcon4.sprite = Level5;
+            // Artefact4Sprite.SetActive(true);
+            // ArtefactLevelIcon4.sprite = Level5;
+            Holdduration = 0.25f;
         }
         else
         {

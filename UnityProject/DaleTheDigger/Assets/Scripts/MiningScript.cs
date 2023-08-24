@@ -4,9 +4,6 @@ using System.Collections;
 
 public class MiningScript : MonoBehaviour
 {
-    public float holdDuration = 2f;
-
-
     private GameObject lastHighlightedBlock;
     private Material originalMaterial;
     private float holdTimer;
@@ -77,7 +74,7 @@ public class MiningScript : MonoBehaviour
                         shakeOffset = Random.insideUnitCircle * shakeMagnitude;
                         hit.collider.transform.position = originalPosition + shakeOffset;
 
-                        if (holdTimer >= holdDuration)
+                        if (holdTimer >= Artefacts.Holdduration)
                         {
                             BlockStats(hit);
                             Vector2 blockpos = hit.collider.transform.position;
