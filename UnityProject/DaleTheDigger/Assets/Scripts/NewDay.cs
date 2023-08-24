@@ -8,6 +8,7 @@ public class NewDay : MonoBehaviour
     public GameObject sleepui;
     public GameObject otherui;
     public static int day;
+    public GameObject Player;
 
     public TextMeshProUGUI Endofday;
     public TextMeshProUGUI RockTotal;
@@ -60,6 +61,7 @@ public class NewDay : MonoBehaviour
         {
             sleepui.SetActive(true);
             otherui.SetActive(false);
+            Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
 
         }
     }
@@ -96,5 +98,9 @@ public class NewDay : MonoBehaviour
             Destroy(tile);
         }
         wg.NewDay();
+        Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+        Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+
+
     }
 }

@@ -9108,6 +9108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sleepui: {fileID: 445348597}
   otherui: {fileID: 187361709}
+  Player: {fileID: 1514951311}
   Endofday: {fileID: 2100925734}
   RockTotal: {fileID: 1483475460}
   RockCoins: {fileID: 2067252254}
@@ -10276,6 +10277,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1496374452}
   m_CullTransparentMesh: 1
+--- !u!1 &1514951311 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3569117739720073780, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
+  m_PrefabInstance: {fileID: 1569891534}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1521278091
 GameObject:
   m_ObjectHideFlags: 0

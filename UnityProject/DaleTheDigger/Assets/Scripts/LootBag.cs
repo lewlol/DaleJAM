@@ -43,6 +43,7 @@ public class LootBag : MonoBehaviour
                 int rangem = Random.Range(0, gemstones.Length);
                 activegem = gemstones[rangem];
                 Inventory.Gemstonecoins += activegem.coinWorth;
+                Inventory.Totalcoins += activegem.coinWorth;
                 Inventory.Gemstones += 1;
                 worldGen.GetComponent<MeshTextAppear>().GenerateText(gameObject.transform.position, 3, "+1 " + activegem.tileName, 25);
             }
