@@ -25,14 +25,14 @@ public class Artefacts : MonoBehaviour
 
 
     //Artefact2 Lower Shop Price
-    public static string Artefact2;
+    public static string Artefact2 = "Connors PiggyBank ";
     public static int Artefact2Level;
     public GameObject Artefact2Sprite;
     public Image ArtefactLevelIcon2;
     public static float shopdiscount;
 
     //Artefact3 Mining Range
-    public static string Artefact3;
+    public static string Artefact3 = "Radlyns Step Ladder";
     public static int Artefact3Level;
     public GameObject Artefact3Sprite;
     public Image ArtefactLevelIcon3;

@@ -4,7 +4,7 @@ using System.Collections;
 public class BombScript : MonoBehaviour
 {
     public GameObject bombPrefab;
-    public float bombForce = 10.0f;
+    public float bombForce = 5.0f;
     public float bombRadius = 2.0f;
     public float bombTimer = 2.0f;
 
