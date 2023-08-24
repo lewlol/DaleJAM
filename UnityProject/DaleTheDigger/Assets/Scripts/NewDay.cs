@@ -68,13 +68,13 @@ public class NewDay : MonoBehaviour
     void daystats()
     {
         Endofday.text = "End of day " + day;
-        RockTotal.text = "Rocks Mined " + Inventory.Rocks;
+        RockTotal.text = " Rocks Mined: " + Inventory.Rocks;
         RockCoins.text = Inventory.Rockcoins+ " Coins Earned";
-        OreTotal.text = "Ores Mined " + Inventory.Ores;
+        OreTotal.text = " Ores Mined: " + Inventory.Ores;
         OreCoins.text = Inventory.Orescoins + " Coins Earned";
-        GemTotal.text = "Gems Mined " + Inventory.Gemstones;
+        GemTotal.text = " Gems Mined: " + Inventory.Gemstones;
         GemCoins.text = Inventory.Gemstonecoins + " Coins earned";
-        coinstotal.text = "Total coins earned " + Inventory.Totalcoins;
+        coinstotal.text = " Total coins earned: " + Inventory.Totalcoins;
     }
 
     public void sleep()
