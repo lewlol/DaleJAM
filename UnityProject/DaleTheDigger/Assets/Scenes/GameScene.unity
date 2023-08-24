@@ -10631,6 +10631,22 @@ PrefabInstance:
       propertyPath: ArtefactLevelIcon4
       value: 
       objectReference: {fileID: 1496374454}
+    - target: {fileID: 1115707804949203276, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1514951311}
+    - target: {fileID: 1115707804949203276, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
+      propertyPath: otherui
+      value: 
+      objectReference: {fileID: 187361709}
+    - target: {fileID: 1115707804949203276, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
+      propertyPath: sleepui
+      value: 
+      objectReference: {fileID: 445348597}
+    - target: {fileID: 1115707804949203276, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
+      propertyPath: DeathSpawnPoint
+      value: 
+      objectReference: {fileID: 1889588078}
     - target: {fileID: 3569117739720073777, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -12954,6 +12970,37 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &1889588078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1889588079}
+  m_Layer: 0
+  m_Name: DeathSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1889588079
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889588078}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.18, y: 7.48, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1920313074
 GameObject:
   m_ObjectHideFlags: 0

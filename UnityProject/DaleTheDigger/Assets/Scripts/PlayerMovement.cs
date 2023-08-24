@@ -26,6 +26,9 @@ public class PlayerMovement : MonoBehaviour
     public static int stamina = 2; //each block broke loses stamina 
     public static int fortune = 0; //chance to get mroe ores from mining
 
+    //Health
+    public static int health ;
+
     //Animation
     private Animator anim;
     private void Awake()
@@ -38,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
         breakingpower = 0;
         coins = 500;
         stamina = fullstamina;
+        health = 100;
     }
 
     private void Update()

@@ -39,6 +39,17 @@ public class Inventory : MonoBehaviour
         Gemstonecoins = 0;
         Totalcoins = 0;
     }
+    public static void deathinventory()
+    {
+        Rocks = 0;
+        Ores = 0;
+        Gemstones = 0;
+        Rockcoins = 0;
+        Orescoins = 0;
+        Gemstonecoins = 0;
+        Totalcoins = 0;
+        bombs = 0;
+    }
 
 
 

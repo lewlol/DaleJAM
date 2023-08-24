@@ -100,6 +100,7 @@ public class NewDay : MonoBehaviour
         wg.NewDay();
         Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
         Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        PlayerMovement.health = 100;
 
 
     }
