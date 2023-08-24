@@ -7708,6 +7708,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1460740206}
     - target: {fileID: 3569117739720073806, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
+      propertyPath: holdDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569117739720073806, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
       propertyPath: outofstaminaui
       value: 
       objectReference: {fileID: 3826269856628012784}
