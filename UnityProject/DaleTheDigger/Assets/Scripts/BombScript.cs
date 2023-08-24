@@ -8,6 +8,8 @@ public class BombScript : MonoBehaviour
     public float bombRadius = 2.0f;
     public float bombTimer = 2.0f;
 
+    public MeshTextAppear mta;
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(1))
@@ -42,6 +44,7 @@ public class BombScript : MonoBehaviour
             if (collider.CompareTag("Block"))
             {
                 CollectAndDestroyBlock(collider.gameObject);
+                mta.GenerateText(collider.gameObject.transform.position, 2f, "+1 " +  collider.gameObject.GetComponent<TileDataPlaceholder>().thisTile.name, 30);
             }
         }
 

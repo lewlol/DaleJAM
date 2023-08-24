@@ -13,6 +13,8 @@ public class Inventory : MonoBehaviour
     public static int Orescoins;
     public static int Gemstonecoins;
     public static int Totalcoins;
+    //items
+    public static int bombs;
 
     private void Start()
     {
@@ -23,6 +25,7 @@ public class Inventory : MonoBehaviour
         Orescoins = 0;
         Gemstonecoins = 0;
         Totalcoins = 0;
+        bombs = 0;
     }
 
     public static void newday()

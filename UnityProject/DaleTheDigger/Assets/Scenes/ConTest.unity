@@ -14568,3 +14568,4 @@ MonoBehaviour:
   bombForce: 4
   bombRadius: 2
   bombTimer: 2
+  mta: {fileID: 1460740206}
