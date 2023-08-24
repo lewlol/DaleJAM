@@ -7718,7 +7718,7 @@ PrefabInstance:
     - target: {fileID: 3569117739720073806, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
       propertyPath: highlightMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 3d8fdcc482af592498e87f0b051de912, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 3569117739720073806, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
       propertyPath: pickaxecorsortexture
       value: 
