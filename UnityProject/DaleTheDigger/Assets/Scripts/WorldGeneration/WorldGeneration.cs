@@ -13,6 +13,7 @@ public class WorldGeneration : MonoBehaviour
     public GameObject baseTile;
     public GameObject lootTile;
     public GameObject gemstoneTile;
+    public GameObject trapTile;
     int gemSprite;
     public int worldLength;
     public int worldHeight;
@@ -22,6 +23,8 @@ public class WorldGeneration : MonoBehaviour
     public float caveFrequency;
     public float seed;
     public int currentYlevel;
+
+    public List<Vector2> blockedSpawns;
     void Start()
     {
         seed = Random.Range(-10000, 10000);
@@ -30,6 +33,7 @@ public class WorldGeneration : MonoBehaviour
         GenerateWorld();
         GenerateLoot();
         GenerateGemstones();
+        SpawnTrap();
     }
 
     private void GenerateMineShaft()
@@ -89,12 +93,14 @@ public class WorldGeneration : MonoBehaviour
     {
         currentYlevel = 0;
         tiles.Clear();
+        blockedSpawns.Clear();
         seed = Random.Range(-10000, 10000);
         GenerateNoiseTexture();
         GenerateMineShaft();
         GenerateWorld();
         GenerateLoot();
         GenerateGemstones();
+        SpawnTrap();
     }
 
     public void yLevelCheck()
@@ -161,6 +167,7 @@ public class WorldGeneration : MonoBehaviour
                             loot.GetComponent<SpriteRenderer>().sprite = tt.thisTile.tileSprite;
                             tiles.Add(loot);
                             loot.transform.parent = gameObject.transform;
+                            blockedSpawns.Add(new Vector2(x, y));
                         }
                     }
                 }
@@ -181,6 +188,14 @@ public class WorldGeneration : MonoBehaviour
                     currentYlevel = y;
                     yLevelCheck();
                     spawnPosition = new Vector3(x, -y, 0);
+
+                    foreach(Vector2 bs in blockedSpawns)
+                    {
+                        if(bs == new Vector2(x, y))
+                        {
+                            break;
+                        }
+                    }
 
                     //DeterminePossibleSpawn
                     if (noiseTexture.GetPixel(x + 1, y).r < 0.5)
@@ -222,6 +237,43 @@ public class WorldGeneration : MonoBehaviour
             gem.GetComponent<SpriteRenderer>().sprite = tt.thisTile.gemSprite[gemSprite];
             tiles.Add(gem);
             gem.transform.parent = gameObject.transform;
+        }
+    }
+
+    public void SpawnTrap()
+    {
+        for (int x = -20; x < worldLength; x++)
+        {
+            for (int y = 1; y < worldHeight; y++)
+            {
+                if (noiseTexture.GetPixel(x, y).r > 0.5)
+                {
+                    currentYlevel = y;
+                    yLevelCheck();
+                    spawnPosition = new Vector3(x, -y, 0);
+
+                    foreach (Vector2 bs in blockedSpawns)
+                    {
+                        if (bs == new Vector2(x, y))
+                        {
+                            break;
+                        }
+                    }
+
+                    //Trap Tile
+                    if (noiseTexture.GetPixel(x, y + 1).r < 0.5)
+                    {
+                        int ran = Random.Range(0, 201);
+                        if (ran > 198) //1% Chance
+                        {
+                            GameObject trap = Instantiate(trapTile, spawnPosition, Quaternion.identity);
+                            tiles.Add(trap);
+                            trap.transform.parent = gameObject.transform;
+                            blockedSpawns.Add(new Vector2(x, y));
+                        }
+                    }
+                }
+            }
         }
     }
 }

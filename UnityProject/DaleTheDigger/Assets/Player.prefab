@@ -156,6 +156,9 @@ MonoBehaviour:
   pickaxecorsortexture: {fileID: 0}
   tma: {fileID: 0}
   hs: {fileID: 0}
+  ignoreRaycast:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &1085396894377041161
 MonoBehaviour:
   m_ObjectHideFlags: 0

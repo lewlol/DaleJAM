@@ -25,6 +25,8 @@ public class MiningScript : MonoBehaviour
     public MeshTextAppear tma;
     public HealthStamUI hs;
     int amountDropped;
+
+    public LayerMask ignoreRaycast;
     private void Start()
     {
         originalPosition = Vector3.zero; // Initialize originalPosition
@@ -34,7 +36,7 @@ public class MiningScript : MonoBehaviour
 
     private void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, ~ignoreRaycast);
 
         if (lastHighlightedBlock != null && lastHighlightedBlock != hit.collider?.gameObject)
         {
