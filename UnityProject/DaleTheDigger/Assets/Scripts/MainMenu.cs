@@ -5,24 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject menupanel;
-    public GameObject infopanel;
+    public GameObject mainMenu;
+    public GameObject info;
 
     private void Start()
     {
-        menupanel.SetActive(true);
-        infopanel.SetActive(false);
+        mainMenu.SetActive(true);
+        info.SetActive(false);
     }
 
-    public void play()
+
+    public void continuepog()
     {
-        menupanel.SetActive(false);
-        infopanel.SetActive(true);
+        mainMenu.SetActive(false);
+        info.SetActive(true);
     }
 
-    public void Continue()
+    public void Quitpog()
+    {
+        Application.Quit();
+    }
+
+    public void togamescene()
     {
         SceneManager.LoadScene(1);
     }
-
 }
