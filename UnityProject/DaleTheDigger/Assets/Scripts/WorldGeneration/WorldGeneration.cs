@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -72,6 +73,10 @@ public class WorldGeneration : MonoBehaviour
         newTile.GetComponent<SpriteRenderer>().sprite = activeTile.tileSprite;
         newTile.GetComponent<TileDataPlaceholder>().thisTile = activeTile;
         tiles.Add(newTile);
+
+        ParticleSystem ps = newTile.GetComponentInChildren<ParticleSystem>();
+        var main = ps.main;
+        main.startColor = activeTile.breakingParticlesColor;
     }
 
     public void GenerateNoiseTexture()

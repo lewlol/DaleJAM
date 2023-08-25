@@ -7,6 +7,7 @@ using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 public class PressurePlateTrap : MonoBehaviour
 {
     public GameObject particles;
+    public Light2D explosionLight;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
@@ -28,6 +29,10 @@ public class PressurePlateTrap : MonoBehaviour
                 CollectAndDestroyBlock(collider.gameObject);
             }
         }
+
+        StartCoroutine(LightIncrease());
+        explosionLight.pointLightOuterRadius += 0.5f;
+
         BoxCollider2D bx = GetComponent<BoxCollider2D>();
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
 
@@ -45,5 +50,22 @@ public class PressurePlateTrap : MonoBehaviour
 
         // Destroy the block
         Destroy(block);
+    }
+
+    IEnumerator LightIncrease()
+    {
+        explosionLight.pointLightOuterRadius += 0.5f;
+        yield return new WaitForSeconds(0.1f);
+        explosionLight.pointLightOuterRadius += 0.5f;
+        yield return new WaitForSeconds(0.1f);
+        explosionLight.pointLightOuterRadius += 0.5f;
+        yield return new WaitForSeconds(0.1f);
+        explosionLight.pointLightOuterRadius += 0.5f;
+        yield return new WaitForSeconds(0.1f);
+        explosionLight.pointLightOuterRadius += 0.5f;
+        yield return new WaitForSeconds(0.1f);
+        explosionLight.pointLightOuterRadius += 0.5f;
+        yield return new WaitForSeconds(0.1f);
+        explosionLight.pointLightOuterRadius = 0f;
     }
 }

@@ -23,5 +23,5 @@ public class Tile : ScriptableObject
     [Header("Tile Mining Data")]
     public int breakingpower;
     public int coinWorth;
-
+    public Color breakingParticlesColor;
 }

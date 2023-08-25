@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using UnityEngine.Rendering.Universal;
+using Unity.Burst.CompilerServices;
 
 public class MiningScript : MonoBehaviour
 {
@@ -73,6 +74,12 @@ public class MiningScript : MonoBehaviour
                     {
                         holdTimer += Time.deltaTime;
 
+                        if (!hit.collider.gameObject.GetComponentInChildren<ParticleSystem>().isPlaying)
+                        {
+                            //Activate Particles
+                            hit.collider.gameObject.GetComponentInChildren<ParticleSystem>().Play();
+                        }
+
                         // Apply shaking effect while mining
                         float shakeMagnitude = 0.05f; // Adjust the magnitude as needed
                         shakeOffset = Random.insideUnitCircle * shakeMagnitude;
@@ -111,6 +118,7 @@ public class MiningScript : MonoBehaviour
             }
             else
             {
+                hit.collider.gameObject.GetComponentInChildren<ParticleSystem>().Stop();
                 isHolding = false;
                 holdTimer = 0.0f;
             }
@@ -146,6 +154,7 @@ public class MiningScript : MonoBehaviour
     {
         if (block != lastHighlightedBlock)
         {
+            block.gameObject.GetComponentInChildren<ParticleSystem>().Stop();
             RestoreOriginalMaterial();
             lastHighlightedBlock = block;
 
@@ -250,6 +259,7 @@ public class MiningScript : MonoBehaviour
 
     public IEnumerator DestroyDelay(RaycastHit2D hit)
     {
+        hit.collider.gameObject.GetComponentInChildren<ParticleSystem>().Stop();
         hit.collider.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         hit.collider.gameObject.GetComponent<SpriteRenderer>().enabled = false;
 
