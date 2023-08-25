@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Silver
   m_EditorClassIdentifier: 
   tileName: 5
-  tileSprite: {fileID: -1054655790, guid: c8ef7ecde803e1f4d894883b5383ee01, type: 3}
   tileType: 1
+  tileSprite: {fileID: -1054655790, guid: c8ef7ecde803e1f4d894883b5383ee01, type: 3}
+  gemSprite: []
+  gemstoneGlow: {r: 0, g: 0, b: 0, a: 0}
+  breakingpower: 0
   coinWorth: 8
+  breakingParticlesColor: {r: 0.63554645, g: 0.6981132, b: 0.66130924, a: 1}

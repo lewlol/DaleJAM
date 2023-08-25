@@ -8,11 +8,14 @@ public class PressurePlateTrap : MonoBehaviour
 {
     public GameObject particles;
     public Light2D explosionLight;
+    private float lightwaittime = 0.1f;
+    private float lightIncrease = 2f;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
             StartCoroutine(ExplodeAfterDelay(gameObject));
+            collision.gameObject.GetComponent<PlayerMovement>().TakeDamage(30);
         }
     }
 
@@ -20,7 +23,7 @@ public class PressurePlateTrap : MonoBehaviour
     {
         yield return new WaitForSeconds(0);
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(pressurePlate.transform.position, 5);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(pressurePlate.transform.position, 3);
 
         foreach (Collider2D collider in colliders)
         {
@@ -54,18 +57,16 @@ public class PressurePlateTrap : MonoBehaviour
 
     IEnumerator LightIncrease()
     {
-        explosionLight.pointLightOuterRadius += 0.5f;
-        yield return new WaitForSeconds(0.1f);
-        explosionLight.pointLightOuterRadius += 0.5f;
-        yield return new WaitForSeconds(0.1f);
-        explosionLight.pointLightOuterRadius += 0.5f;
-        yield return new WaitForSeconds(0.1f);
-        explosionLight.pointLightOuterRadius += 0.5f;
-        yield return new WaitForSeconds(0.1f);
-        explosionLight.pointLightOuterRadius += 0.5f;
-        yield return new WaitForSeconds(0.1f);
-        explosionLight.pointLightOuterRadius += 0.5f;
-        yield return new WaitForSeconds(0.1f);
+        explosionLight.pointLightOuterRadius += lightIncrease;
+        yield return new WaitForSeconds(lightwaittime);
+        explosionLight.pointLightOuterRadius += lightIncrease;
+        yield return new WaitForSeconds(lightwaittime);
+        explosionLight.pointLightOuterRadius += lightIncrease;
+        yield return new WaitForSeconds(lightwaittime);
+        explosionLight.pointLightOuterRadius += lightIncrease;
+        yield return new WaitForSeconds(lightwaittime);
+        explosionLight.pointLightOuterRadius += lightIncrease;
+        yield return new WaitForSeconds(lightwaittime);
         explosionLight.pointLightOuterRadius = 0f;
     }
 }

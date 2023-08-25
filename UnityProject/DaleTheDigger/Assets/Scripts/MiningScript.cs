@@ -137,7 +137,7 @@ public class MiningScript : MonoBehaviour
         Vector3 direction = targetPosition - playerPosition;
         float distance = Vector3.Distance(playerPosition, targetPosition);
 
-        RaycastHit2D[] hits = Physics2D.RaycastAll(playerPosition, direction, distance);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(playerPosition, direction, distance, ~ignoreRaycast);
 
         foreach (RaycastHit2D hit in hits)
         {

@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Sulfur
   m_EditorClassIdentifier: 
   tileName: 9
-  tileSprite: {fileID: 631005555, guid: c8ef7ecde803e1f4d894883b5383ee01, type: 3}
   tileType: 1
+  tileSprite: {fileID: 631005555, guid: c8ef7ecde803e1f4d894883b5383ee01, type: 3}
+  gemSprite: []
+  gemstoneGlow: {r: 0, g: 0, b: 0, a: 0}
   breakingpower: 2
   coinWorth: 25
+  breakingParticlesColor: {r: 0.8442154, g: 0.8490566, b: 0.53266287, a: 1}

@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Greystone
   m_EditorClassIdentifier: 
   tileName: 1
-  tileSprite: {fileID: 1537405671, guid: c8ef7ecde803e1f4d894883b5383ee01, type: 3}
   tileType: 0
+  tileSprite: {fileID: 1537405671, guid: c8ef7ecde803e1f4d894883b5383ee01, type: 3}
+  gemSprite: []
+  gemstoneGlow: {r: 0, g: 0, b: 0, a: 0}
   breakingpower: 1
   coinWorth: 2
+  breakingParticlesColor: {r: 0.21698111, g: 0.21698111, b: 0.21698111, a: 1}

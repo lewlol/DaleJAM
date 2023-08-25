@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc9b9a14e2af1fd45b7562e2e1355778, type: 3}
   m_Name: Stone
   m_EditorClassIdentifier: 
-  tileName: Stone
-  tileSprite: {fileID: 1321146257, guid: c8ef7ecde803e1f4d894883b5383ee01, type: 3}
+  tileName: 0
   tileType: 0
+  tileSprite: {fileID: 1321146257, guid: c8ef7ecde803e1f4d894883b5383ee01, type: 3}
+  gemSprite: []
+  gemstoneGlow: {r: 0, g: 0, b: 0, a: 0}
+  breakingpower: 0
   coinWorth: 1
+  breakingParticlesColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 1}

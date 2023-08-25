@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
+using UnityEngine.Rendering.Universal;
 
 public class BombScript : MonoBehaviour
 {
@@ -11,6 +12,12 @@ public class BombScript : MonoBehaviour
 
     public MeshTextAppear mta;
     public TextMeshProUGUI bombCount;
+
+    public ParticleSystem particles;
+
+    private float lightwaittime = 0.02f;
+    private float lightIncrease = 0.5f;
+    private float lightIntensityFallOff = 0.1f;
 
     private bool canThrowBomb = true; // Add this variable
     public float throwCooldown = 3.0f; // Add this variable
@@ -57,9 +64,18 @@ public class BombScript : MonoBehaviour
             }
         }
 
+        bomb.GetComponent<CircleCollider2D>().enabled = false;
+        bomb.GetComponent<SpriteRenderer>().enabled = false;
+        Light2D bLight = bomb.transform.GetChild(0).GetComponent<Light2D>();
+        StartCoroutine(LightIncrease(bLight));
+        bLight.transform.SetParent(null);
+        bomb.GetComponentInChildren<Light2D>().enabled = false;
+        particles = bomb.GetComponentInChildren<ParticleSystem>();
+        particles.Play();
+        particles.transform.parent = null;
+        yield return new WaitForSeconds(throwCooldown);// Add this line
         Destroy(bomb);
-
-        yield return new WaitForSeconds(throwCooldown); // Add this line
+        Destroy(particles);
         canThrowBomb = true; // Re-enable bomb throwing
     }
 
@@ -97,5 +113,32 @@ public class BombScript : MonoBehaviour
 
         // Destroy the block
         Destroy(block);
+    }
+
+    IEnumerator LightIncrease(Light2D explosionLight)
+    {
+        explosionLight.pointLightOuterRadius += lightIncrease;
+        yield return new WaitForSeconds(lightwaittime);
+        explosionLight.pointLightOuterRadius += lightIncrease;
+        yield return new WaitForSeconds(lightwaittime);
+        explosionLight.pointLightOuterRadius += lightIncrease;
+        yield return new WaitForSeconds(lightwaittime);
+        explosionLight.pointLightOuterRadius += lightIncrease;
+        explosionLight.pointLightInnerRadius += lightIncrease;
+        explosionLight.falloffIntensity += lightIntensityFallOff;
+        yield return new WaitForSeconds(lightwaittime);
+        explosionLight.pointLightOuterRadius += lightIncrease;
+        explosionLight.pointLightInnerRadius += lightIncrease;
+        explosionLight.falloffIntensity += lightIntensityFallOff;
+        yield return new WaitForSeconds(lightwaittime);
+        explosionLight.pointLightOuterRadius += lightIncrease;
+        explosionLight.pointLightInnerRadius += lightIncrease;
+        explosionLight.falloffIntensity += lightIntensityFallOff;
+        yield return new WaitForSeconds(lightwaittime);
+        explosionLight.pointLightOuterRadius += lightIncrease;
+        explosionLight.pointLightInnerRadius += lightIncrease;
+        explosionLight.falloffIntensity += lightIntensityFallOff;
+        yield return new WaitForSeconds(lightwaittime);
+        explosionLight.pointLightOuterRadius = 0f;
     }
 }

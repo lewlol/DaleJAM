@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Cobalt
   m_EditorClassIdentifier: 
   tileName: 7
-  tileSprite: {fileID: 1589698762, guid: c8ef7ecde803e1f4d894883b5383ee01, type: 3}
   tileType: 1
+  tileSprite: {fileID: 1589698762, guid: c8ef7ecde803e1f4d894883b5383ee01, type: 3}
+  gemSprite: []
+  gemstoneGlow: {r: 0, g: 0, b: 0, a: 0}
   breakingpower: 1
   coinWorth: 15
+  breakingParticlesColor: {r: 0, g: 0.2466259, b: 1, a: 1}

@@ -23,3 +23,4 @@ MonoBehaviour:
   gemstoneGlow: {r: 0, g: 1, b: 0.046749115, a: 1}
   breakingpower: 1
   coinWorth: 15
+  breakingParticlesColor: {r: 0, g: 1, b: 0.028357506, a: 1}

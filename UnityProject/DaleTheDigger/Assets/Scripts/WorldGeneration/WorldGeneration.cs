@@ -173,6 +173,10 @@ public class WorldGeneration : MonoBehaviour
                             tiles.Add(loot);
                             loot.transform.parent = gameObject.transform;
                             blockedSpawns.Add(new Vector2(x, y));
+
+                            ParticleSystem ps = loot.GetComponentInChildren<ParticleSystem>();
+                            var main = ps.main;
+                            main.startColor = activeTile.breakingParticlesColor;
                         }
                     }
                 }
@@ -242,6 +246,10 @@ public class WorldGeneration : MonoBehaviour
             gem.GetComponent<SpriteRenderer>().sprite = tt.thisTile.gemSprite[gemSprite];
             tiles.Add(gem);
             gem.transform.parent = gameObject.transform;
+
+            ParticleSystem ps = gem.GetComponentInChildren<ParticleSystem>();
+            var main = ps.main;
+            main.startColor = activeTile.breakingParticlesColor;
         }
     }
 

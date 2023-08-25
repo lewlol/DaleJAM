@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Coal
   m_EditorClassIdentifier: 
   tileName: 3
-  tileSprite: {fileID: -1489851572, guid: c8ef7ecde803e1f4d894883b5383ee01, type: 3}
   tileType: 1
+  tileSprite: {fileID: -1489851572, guid: c8ef7ecde803e1f4d894883b5383ee01, type: 3}
+  gemSprite: []
+  gemstoneGlow: {r: 0, g: 0, b: 0, a: 0}
+  breakingpower: 0
   coinWorth: 3
+  breakingParticlesColor: {r: 0.084905684, g: 0.084905684, b: 0.084905684, a: 1}

@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Deepstone
   m_EditorClassIdentifier: 
   tileName: 2
-  tileSprite: {fileID: 594901576, guid: c8ef7ecde803e1f4d894883b5383ee01, type: 3}
   tileType: 0
+  tileSprite: {fileID: 594901576, guid: c8ef7ecde803e1f4d894883b5383ee01, type: 3}
+  gemSprite: []
+  gemstoneGlow: {r: 0, g: 0, b: 0, a: 0}
   breakingpower: 2
   coinWorth: 3
+  breakingParticlesColor: {r: 0.12662426, g: 0.110270575, b: 0.13207549, a: 1}

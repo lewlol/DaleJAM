@@ -7,10 +7,10 @@ public class HealthStamUI : MonoBehaviour
 {
     public Slider healthSlider;
     public Slider stamSlider;
-    public void UpdateHealthUI()
+    public void UpdateHealthUI(int maxHealth, int health)
     {
-        healthSlider.maxValue = PlayerMovement.maxHealth;
-        healthSlider.value = PlayerMovement.health;      
+        healthSlider.maxValue = maxHealth;
+        healthSlider.value = health;      
     }
 
     public void UpdateStaminaUI()

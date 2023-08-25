@@ -27,8 +27,8 @@ public class PlayerMovement : MonoBehaviour
     public static int fortune = 0; //chance to get mroe ores from mining
 
     //Health
-    public static int maxHealth = 100;
-    public static int health;
+    public int maxHealth = 100;
+    public int health;
 
     //Animation
     private Animator anim;
@@ -63,8 +63,6 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         movement();
-
-
     }
     void pickaxerotation()
     {
@@ -117,6 +115,24 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.SetBool("isWalking", false);
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        Death d = GetComponent<Death>();
+
+        health -= damage;
+        d.AffectHealthUI(maxHealth, health);
+
+        if(health <= 0)
+        {    
+            d.Respawn();
+        }
+    }
+
+    public void HealPlayer()
+    {
+        health = maxHealth;
     }
 
 }

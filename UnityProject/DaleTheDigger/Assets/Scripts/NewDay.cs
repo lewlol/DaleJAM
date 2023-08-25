@@ -86,9 +86,11 @@ public class NewDay : MonoBehaviour
         otherui.SetActive(true);
         sleepui.SetActive(false);
         PlayerMovement.stamina = PlayerMovement.fullstamina;
+        Player.GetComponent<PlayerMovement>().HealPlayer();
+
 
         hs.UpdateStaminaUI();
-        hs.UpdateHealthUI();
+        hs.UpdateHealthUI(Player.GetComponent<PlayerMovement>().maxHealth, Player.GetComponent<PlayerMovement>().health);
 
         WorldGeneration wg = GameObject.Find("WorldGenerationManager").GetComponent<WorldGeneration>();
         worldGen.GetComponent<DayCounter>().AddDayCount(day.ToString());
@@ -100,8 +102,5 @@ public class NewDay : MonoBehaviour
         wg.NewDay();
         Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
         Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-        PlayerMovement.health = 100;
-
-
     }
 }

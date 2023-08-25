@@ -8,22 +8,7 @@ public class Death : MonoBehaviour
     public GameObject DeathSpawnPoint;
     public GameObject otherui;
     public GameObject sleepui;
- 
-    void Update()
-    {
-        if(PlayerMovement.health <= 0)
-        {
-            Respawn();
-        }
-
-        if(Input.GetKeyDown(KeyCode.L))
-        {
-            PlayerMovement.health = 0;
-        }
-
-
-    }
-
+    public HealthStamUI hs;
     public void Respawn()
     {
         //clears inventory
@@ -32,6 +17,8 @@ public class Death : MonoBehaviour
         sleepui.SetActive(true);
         Player.transform.position = DeathSpawnPoint.transform.position;
     }
-    
-
+    public void AffectHealthUI(int mh, int h)
+    {
+        hs.UpdateHealthUI(mh, h);
+    }
 }
