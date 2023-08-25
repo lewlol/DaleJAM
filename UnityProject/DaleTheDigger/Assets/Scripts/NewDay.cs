@@ -91,7 +91,7 @@ public class NewDay : MonoBehaviour
         hs.UpdateHealthUI();
 
         WorldGeneration wg = GameObject.Find("WorldGenerationManager").GetComponent<WorldGeneration>();
-
+        worldGen.GetComponent<DayCounter>().AddDayCount(day.ToString());
         //Delete Previous World Gen
         foreach(GameObject tile in wg.tiles)
         {     

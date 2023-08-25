@@ -115,7 +115,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: 8bcd56f06408a2b4d9de4c81962624d9, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &3569117739720073807
 MonoBehaviour:
@@ -278,6 +278,7 @@ MonoBehaviour:
   bombTimer: 2
   mta: {fileID: 0}
   bombCount: {fileID: 0}
+  throwCooldown: 3
 --- !u!1 &3569117740535887253
 GameObject:
   m_ObjectHideFlags: 0

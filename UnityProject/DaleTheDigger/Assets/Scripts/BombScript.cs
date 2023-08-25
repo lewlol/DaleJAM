@@ -13,7 +13,7 @@ public class BombScript : MonoBehaviour
     public TextMeshProUGUI bombCount;
 
     private bool canThrowBomb = true; // Add this variable
-    private float throwCooldown = 3.0f; // Add this variable
+    public float throwCooldown = 3.0f; // Add this variable
 
     private void Update()
     {

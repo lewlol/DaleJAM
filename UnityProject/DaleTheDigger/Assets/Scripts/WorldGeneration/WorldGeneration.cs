@@ -100,15 +100,15 @@ public class WorldGeneration : MonoBehaviour
     public void yLevelCheck()
     {
         //Compare to Biome Level (if above minimum and below max)
-        if (currentYlevel <= 50)
+        if (currentYlevel <= 100)
         {
             activeBiome = 0;
         }
-        if (currentYlevel > 50 && currentYlevel <= 100)
+        if (currentYlevel > 100 && currentYlevel <= 200)
         {
             activeBiome = 1;
         }
-        if (currentYlevel > 100 && currentYlevel <= 150)
+        if (currentYlevel > 200 && currentYlevel <= 300)
         {
             activeBiome = 2;
         }
@@ -160,6 +160,7 @@ public class WorldGeneration : MonoBehaviour
                             tt.thisTile = biomes[activeBiome].loot;
                             loot.GetComponent<SpriteRenderer>().sprite = tt.thisTile.tileSprite;
                             tiles.Add(loot);
+                            loot.transform.parent = gameObject.transform;
                         }
                     }
                 }
@@ -220,6 +221,7 @@ public class WorldGeneration : MonoBehaviour
             gem.GetComponentInChildren<Light2D>().color = tt.thisTile.gemstoneGlow;
             gem.GetComponent<SpriteRenderer>().sprite = tt.thisTile.gemSprite[gemSprite];
             tiles.Add(gem);
+            gem.transform.parent = gameObject.transform;
         }
     }
 }

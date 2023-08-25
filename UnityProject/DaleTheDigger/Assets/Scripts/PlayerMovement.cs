@@ -27,7 +27,8 @@ public class PlayerMovement : MonoBehaviour
     public static int fortune = 0; //chance to get mroe ores from mining
 
     //Health
-    public static int health ;
+    public static int maxHealth = 100;
+    public static int health;
 
     //Animation
     private Animator anim;
@@ -41,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         breakingpower = 0;
         coins = 500;
         stamina = fullstamina;
-        health = 100;
+        health = maxHealth;
     }
 
     private void Update()

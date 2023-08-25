@@ -9,7 +9,8 @@ public class HealthStamUI : MonoBehaviour
     public Slider stamSlider;
     public void UpdateHealthUI()
     {
-
+        healthSlider.maxValue = PlayerMovement.maxHealth;
+        healthSlider.value = PlayerMovement.health;      
     }
 
     public void UpdateStaminaUI()
