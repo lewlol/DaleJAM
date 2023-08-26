@@ -12,7 +12,7 @@ public class MiningScript : MonoBehaviour
     private bool isHolding;
     private Vector3 originalBlockPosition;
 
-    public GameObject outofstaminaui;
+   
     public TextMeshProUGUI insufficientPowerText;
 
     private bool isInsufficientPowerTextActive = false;
@@ -113,7 +113,7 @@ public class MiningScript : MonoBehaviour
                 {
                     Debug.Log("Not enough stamina to break this block!");
                     tma.gameObject.GetComponent<Indicator>().EnableIndicator(false, 5f, "Not enough stamina to break this block!");
-                    outofstaminaui.SetActive(true);
+                  
                 }
             }
             else
