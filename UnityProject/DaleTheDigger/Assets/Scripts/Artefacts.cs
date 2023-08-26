@@ -73,6 +73,15 @@ public class Artefacts : MonoBehaviour
         Artefact2Logic();
         Artefact3Logic();
         Artefact4Logic();  
+
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            Artefact1Level++;
+            Artefact2Level++;
+            Artefact3Level++;
+            Artefact4Level++;
+
+        }
     }
 
     public void Artefact1Logic()
