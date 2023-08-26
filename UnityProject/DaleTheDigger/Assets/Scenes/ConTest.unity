@@ -20786,6 +20786,14 @@ PrefabInstance:
       propertyPath: bombCount
       value: 
       objectReference: {fileID: 1135704390}
+    - target: {fileID: -9188642812517662387, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
+      propertyPath: shakeDuration
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -9188642812517662387, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
+      propertyPath: shakeMagnitude
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: -8347216537957942191, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
       propertyPath: spawnpoint
       value: 
