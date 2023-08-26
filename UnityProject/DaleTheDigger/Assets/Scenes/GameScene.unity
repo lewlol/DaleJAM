@@ -17000,6 +17000,22 @@ PrefabInstance:
       propertyPath: insufficientPowerText
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3569117739720073807, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
+      propertyPath: damagedPlayer.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569117739720073807, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
+      propertyPath: damagedPlayer.b
+      value: 0.3066038
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569117739720073807, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
+      propertyPath: damagedPlayer.g
+      value: 0.3066038
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569117739720073807, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
+      propertyPath: damagedPlayer.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3569117739720073777, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
