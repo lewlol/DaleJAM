@@ -11,11 +11,23 @@ public class PressurePlateTrap : MonoBehaviour
     private float lightwaittime = 0.1f;
     private float lightIncrease = 2f;
     public AudioSource explosion;
+
+    public float shakeMagnitude = 0.2f;
+    public float shakeDuration = 0.5f;
+
+    private Vector3 originalCameraPosition;
+
+    private void Start()
+    {
+        shakeMagnitude = 0.2f;
+        shakeDuration = 0.5f;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
             StartCoroutine(ExplodeAfterDelay(gameObject));
+
             explosion.Play();
             collision.gameObject.GetComponent<PlayerMovement>().TakeDamage(30);
         }
@@ -37,10 +49,11 @@ public class PressurePlateTrap : MonoBehaviour
 
         StartCoroutine(LightIncrease());
         explosionLight.pointLightOuterRadius += 0.5f;
-
+       
         BoxCollider2D bx = GetComponent<BoxCollider2D>();
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
-
+        originalCameraPosition = Camera.main.transform.position;
+        StartCoroutine(ScreenShake());
         bx.enabled = false;
         sr.enabled = false;
         particles.SetActive(true);
@@ -71,4 +84,23 @@ public class PressurePlateTrap : MonoBehaviour
         yield return new WaitForSeconds(lightwaittime);
         explosionLight.pointLightOuterRadius = 0f;
     }
+
+    private IEnumerator ScreenShake()
+    {
+        float elapsed = 0.0f;
+
+        while (elapsed < shakeDuration)
+        {
+            Vector3 cameraShake = Random.insideUnitCircle * shakeMagnitude;
+
+            Camera.main.transform.position = originalCameraPosition + new Vector3(cameraShake.x, cameraShake.y, 0.0f);
+
+            elapsed += Time.deltaTime;
+
+            yield return null;
+        }
+
+        Camera.main.transform.position = originalCameraPosition;
+    }
+
 }
