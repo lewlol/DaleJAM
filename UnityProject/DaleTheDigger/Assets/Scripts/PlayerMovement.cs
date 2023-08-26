@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
 
     //Animation
     private Animator anim;
+
+    public Color damagedPlayer;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -123,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
 
         health -= damage;
         d.AffectHealthUI(maxHealth, health);
-
+        StartCoroutine(DamagedPlayerRed());
         if(health <= 0)
         {    
             d.Respawn();
@@ -133,6 +135,14 @@ public class PlayerMovement : MonoBehaviour
     public void HealPlayer()
     {
         health = maxHealth;
+    }
+
+    IEnumerator DamagedPlayerRed()
+    {
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        sr.color = damagedPlayer;
+        yield return new WaitForSeconds(0.25f);
+        sr.color = Color.white;
     }
 
 }
