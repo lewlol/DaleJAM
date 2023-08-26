@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -34,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
 
     public Color damagedPlayer;
+    public AudioSource walking;
+    public AudioSource playerHurt;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -60,6 +63,11 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity += Vector2.up * Physics2D.gravity.y * (lowjumpMultiplier - 1) * Time.deltaTime;
         }
+
+        if (!walking.isPlaying && isGrounded && rb.velocity != Vector2.zero)
+            walking.Play();
+        if(walking.isPlaying && !isGrounded || walking.isPlaying && rb.velocity == Vector2.zero)
+            walking.Stop();
     }
 
     private void FixedUpdate()
@@ -126,6 +134,7 @@ public class PlayerMovement : MonoBehaviour
         health -= damage;
         d.AffectHealthUI(maxHealth, health);
         StartCoroutine(DamagedPlayerRed());
+        playerHurt.Play();
         if(health <= 0)
         {    
             d.Respawn();
