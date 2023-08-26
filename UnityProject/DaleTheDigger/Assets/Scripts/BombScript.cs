@@ -62,6 +62,11 @@ public class BombScript : MonoBehaviour
                 CollectAndDestroyBlock(collider.gameObject);
                 mta.GenerateText(collider.gameObject.transform.position, 2f, "+1 " + collider.gameObject.GetComponent<TileDataPlaceholder>().thisTile.name, 30);
             }
+
+            if(collider.gameObject.tag == "Player")
+            {
+                collider.gameObject.GetComponent<PlayerMovement>().TakeDamage(15);
+            }
         }
 
         bomb.GetComponent<CircleCollider2D>().enabled = false;
