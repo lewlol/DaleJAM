@@ -22,6 +22,16 @@ public class BombScript : MonoBehaviour
     private bool canThrowBomb = true; // Add this variable
     public float throwCooldown = 3.0f; // Add this variable
 
+    private Vector3 originalCameraPosition;
+    public float shakeMagnitude = 0.1f;
+    public float shakeDuration = 0.2f;
+
+    private void Start()
+    {
+        shakeMagnitude = 0.2f;
+        shakeDuration = 0.5f;
+    }
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(1) && canThrowBomb && Inventory.bombs > 0) // Check if the player has bombs and cooldown is over
@@ -68,6 +78,8 @@ public class BombScript : MonoBehaviour
                 collider.gameObject.GetComponent<PlayerMovement>().TakeDamage(15);
             }
         }
+        originalCameraPosition = Camera.main.transform.position;
+        StartCoroutine(ScreenShake());
 
         bomb.GetComponent<CircleCollider2D>().enabled = false;
         bomb.GetComponent<SpriteRenderer>().enabled = false;
@@ -123,6 +135,23 @@ public class BombScript : MonoBehaviour
 
         // Destroy the block
         Destroy(block);
+    }
+    private IEnumerator ScreenShake()
+    {
+        float elapsed = 0.0f;
+
+        while (elapsed < shakeDuration)
+        {
+            Vector3 cameraShake = Random.insideUnitCircle * shakeMagnitude;
+
+            Camera.main.transform.position = originalCameraPosition + new Vector3(cameraShake.x, cameraShake.y, 0.0f);
+
+            elapsed += Time.deltaTime;
+
+            yield return null;
+        }
+
+        Camera.main.transform.position = originalCameraPosition;
     }
 
     IEnumerator LightIncrease(Light2D explosionLight)

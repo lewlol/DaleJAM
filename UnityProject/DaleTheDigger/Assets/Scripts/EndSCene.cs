@@ -42,7 +42,7 @@ public class EndSCene : MonoBehaviour
     public void endpog()
     {
         Daystaken.text = "In " + NewDay.day +  " Days.";
-        RocksMined.text = "You Mined " +OresMined+ " Rocks";
+        RocksMined.text = "You Mined " +TotalOres+ " Rocks";
         OresMined.text = "You Mined " +TotalOres+ " Ores";
         Gemstonesmined.text = "You Mined " +TotalGems+ " Gemstones";
         coinsearned.text = "You Gained " + Totalcoins+ " Total Coins";
