@@ -28,6 +28,7 @@ public class MainMenu : MonoBehaviour
 
     public void togamescene()
     {
+        EndSCene.cleartotals();
         SceneManager.LoadScene(1);
     }
 }

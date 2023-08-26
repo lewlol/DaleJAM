@@ -97,20 +97,24 @@ public class BombScript : MonoBehaviour
         {
             case TileTypes.Rock:
                 Inventory.Rocks += amountToDrop;
+                EndSCene.Totalrocks += amountToDrop;
                 Inventory.Rockcoins += coinWorth * amountToDrop;
                 break;
             case TileTypes.Ore:
                 Inventory.Ores += amountToDrop;
+                EndSCene.TotalOres += amountToDrop;
                 Inventory.Orescoins += coinWorth * amountToDrop;
                 break;
             case TileTypes.Gemstone:
                 Inventory.Gemstones += amountToDrop;
+                EndSCene.TotalGems += amountToDrop;
                 Inventory.Gemstonecoins += coinWorth * amountToDrop;
                 break;
                 // Add more cases for other tile types if needed
         }
 
         Inventory.Totalcoins += coinWorth * amountToDrop; // Add coins to the total
+        EndSCene.Totalcoins += coinWorth * amountToDrop;
 
         // Destroy the block
         Destroy(block);

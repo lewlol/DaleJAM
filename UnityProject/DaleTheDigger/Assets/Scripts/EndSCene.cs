@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class EndSCene : MonoBehaviour
 {
@@ -10,12 +11,12 @@ public class EndSCene : MonoBehaviour
     public TextMeshProUGUI RocksMined;
     public TextMeshProUGUI OresMined;
     public TextMeshProUGUI Gemstonesmined;
-    public TextMeshProUGUI chestsopened;
+    public TextMeshProUGUI coinsearned;
 
     public static int Totalrocks;
     public static int TotalOres;
     public static int TotalGems;
-    public static int TotalChests;
+    public static int Totalcoins;
         
 
 
@@ -23,6 +24,13 @@ public class EndSCene : MonoBehaviour
     void Start()
     {
         
+    }
+    public static void cleartotals()
+    {
+        Totalrocks = 0;
+        TotalOres = 0;
+        TotalGems = 0;
+        Totalcoins = 0;
     }
 
     // Update is called once per frame
@@ -33,12 +41,17 @@ public class EndSCene : MonoBehaviour
 
     public void endpog()
     {
-        Daystaken.text = "You took " + NewDay.day +  " Days.";
+        Daystaken.text = "In " + NewDay.day +  " Days.";
         RocksMined.text = "You Mined" + " Rocks";
         OresMined.text = "You Mined" + " Ores";
         Gemstonesmined.text = "You Mined" + " Gemstones";
-        chestsopened.text = "You Opened" + "Loot Chests";
+        coinsearned.text = "You Gained" + Totalcoins+ "Total Coins";
 
+    }
+
+    public void ended()
+    {
+        SceneManager.LoadScene(0);
     }
 
 }

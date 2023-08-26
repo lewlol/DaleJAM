@@ -222,17 +222,23 @@ public class MiningScript : MonoBehaviour
             if (tdp.thisTile.tileType == TileTypes.Rock)
             {
                 Inventory.Rocks += 2;
+                EndSCene.Totalrocks += 2;
                 Inventory.Rockcoins += coinWorth * 2;
+                EndSCene.Totalcoins += coinWorth * 2;
             }
             else if (tdp.thisTile.tileType == TileTypes.Ore)
             {
                 Inventory.Ores += 2;
+                EndSCene.TotalOres += 2;
                 Inventory.Orescoins += coinWorth * 2;
+                EndSCene.Totalcoins += coinWorth * 2;
             }
             else if (tdp.thisTile.tileType == TileTypes.Gemstone)
             {
                 Inventory.Gemstones += 2;
+                EndSCene.TotalGems += 2;
                 Inventory.Gemstonecoins += coinWorth * 2;
+                EndSCene.Totalcoins += coinWorth * 2;
             }
         }
         else // Regular drop
@@ -241,18 +247,24 @@ public class MiningScript : MonoBehaviour
             amountDropped = 1;
             if (tdp.thisTile.tileType == TileTypes.Rock)
             {
+                EndSCene.Totalrocks++;
                 Inventory.Rocks++;
                 Inventory.Rockcoins += coinWorth;
+                EndSCene.Totalcoins += coinWorth * 2;
             }
             else if (tdp.thisTile.tileType == TileTypes.Ore)
             {
                 Inventory.Ores++;
+                EndSCene.TotalOres ++;
                 Inventory.Orescoins += coinWorth;
+                EndSCene.Totalcoins += coinWorth * 2;
             }
             else if (tdp.thisTile.tileType == TileTypes.Gemstone)
             {
                 Inventory.Gemstones++;
+                EndSCene.TotalGems += 2;
                 Inventory.Gemstonecoins += coinWorth;
+                EndSCene.Totalcoins += coinWorth * 2;
             }
         }
     }
