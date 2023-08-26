@@ -73,6 +73,7 @@ public class BombScript : MonoBehaviour
         particles = bomb.GetComponentInChildren<ParticleSystem>();
         particles.Play();
         particles.transform.parent = null;
+        bomb.GetComponentInChildren<AudioSource>().Play();
         yield return new WaitForSeconds(throwCooldown);// Add this line
         Destroy(bomb);
         Destroy(particles);

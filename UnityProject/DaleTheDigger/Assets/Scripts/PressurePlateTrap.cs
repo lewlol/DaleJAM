@@ -10,11 +10,13 @@ public class PressurePlateTrap : MonoBehaviour
     public Light2D explosionLight;
     private float lightwaittime = 0.1f;
     private float lightIncrease = 2f;
+    public AudioSource explosion;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
             StartCoroutine(ExplodeAfterDelay(gameObject));
+            explosion.Play();
             collision.gameObject.GetComponent<PlayerMovement>().TakeDamage(30);
         }
     }
