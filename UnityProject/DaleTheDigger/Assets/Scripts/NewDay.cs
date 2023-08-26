@@ -102,5 +102,8 @@ public class NewDay : MonoBehaviour
         wg.NewDay();
         Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
         Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        Player.GetComponent<CapsuleCollider2D>().enabled = true;
+        Player.GetComponent<SpriteRenderer>().enabled = true;
     }
 }
