@@ -12,7 +12,7 @@ public class MiningScript : MonoBehaviour
     private bool isHolding;
     private Vector3 originalBlockPosition;
 
-   
+
     public TextMeshProUGUI insufficientPowerText;
 
     private bool isInsufficientPowerTextActive = false;
@@ -26,6 +26,7 @@ public class MiningScript : MonoBehaviour
     public MeshTextAppear tma;
     public HealthStamUI hs;
     int amountDropped;
+    private GameObject previousHighlightedBlock; 
 
     public LayerMask ignoreRaycast;
     private void Start()
@@ -95,7 +96,7 @@ public class MiningScript : MonoBehaviour
                             holdTimer = 0.0f;
 
                             //Text 
-                            if(hit.collider.gameObject.GetComponent<TileDataPlaceholder>().thisTile.tileType != TileTypes.Loot)
+                            if (hit.collider.gameObject.GetComponent<TileDataPlaceholder>().thisTile.tileType != TileTypes.Loot)
                             {
                                 tma.GenerateText(blockpos, 1, "+" + amountDropped + " " + text, 30);
                             }
@@ -107,24 +108,27 @@ public class MiningScript : MonoBehaviour
                     {
                         Debug.Log("Pickaxe not strong enough to break this block!");
                         tma.gameObject.GetComponent<Indicator>().EnableIndicator(false, 5f, "Pickaxe not strong enough to break this block!");
+                        StopParticles();
                     }
                 }
                 else
                 {
                     Debug.Log("Not enough stamina to break this block!");
                     tma.gameObject.GetComponent<Indicator>().EnableIndicator(false, 5f, "Not enough stamina to break this block!");
-                  
+                    StopParticles();
+
                 }
             }
             else
             {
-                hit.collider.gameObject.GetComponentInChildren<ParticleSystem>().Stop();
+                 StopParticles();
                 isHolding = false;
                 holdTimer = 0.0f;
             }
         }
         else
         {
+            StopParticles();
             isHolding = false;
             holdTimer = 0.0f;
         }
@@ -143,7 +147,7 @@ public class MiningScript : MonoBehaviour
         {
             if (hit.collider.CompareTag("Block") && hit.collider.gameObject != block)
             {
-                return false; 
+                return false;
             }
         }
 
@@ -152,9 +156,13 @@ public class MiningScript : MonoBehaviour
 
     private void HighlightBlock(GameObject block)
     {
-        if (block != lastHighlightedBlock)
+        if (block != previousHighlightedBlock)
         {
-            block.gameObject.GetComponentInChildren<ParticleSystem>().Stop();
+            if (previousHighlightedBlock != null)
+            {
+                StopParticles(previousHighlightedBlock);
+            }
+
             RestoreOriginalMaterial();
             lastHighlightedBlock = block;
 
@@ -168,29 +176,40 @@ public class MiningScript : MonoBehaviour
 
             // Change the cursor to the custom texture
             Cursor.SetCursor(pickaxecorsortexture, Vector2.zero, CursorMode.Auto);
+
+            previousHighlightedBlock = block; // Update the previously highlighted block
         }
     }
 
- private void RestoreOriginalMaterial()
-{
-    if (lastHighlightedBlock != null && originalMaterial != null)
+    private void RestoreOriginalMaterial()
     {
-        lastHighlightedBlock.GetComponent<Renderer>().material = originalMaterial;
-        lastHighlightedBlock.transform.position = originalPosition;
+        if (lastHighlightedBlock != null && originalMaterial != null)
+        {
+            StopParticles(lastHighlightedBlock); // Stop particles of the previous highlighted block
 
-        // Get the child object and disable it
-        GameObject childObject = lastHighlightedBlock.transform.GetChild(0).gameObject;
+            lastHighlightedBlock.GetComponent<Renderer>().material = originalMaterial;
+            lastHighlightedBlock.transform.position = originalPosition;
+
+            // Get the child object and disable it
+            GameObject childObject = lastHighlightedBlock.transform.GetChild(0).gameObject;
             SpriteRenderer childSpriteRenderer = childObject.GetComponent<SpriteRenderer>();
             childSpriteRenderer.enabled = false;
 
             // Change the cursor back to the default
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 
-        lastHighlightedBlock = null;
+            lastHighlightedBlock = null;
+            previousHighlightedBlock = null; // Reset the previous highlighted block
+        }
     }
-}
 
-
+    private void StopParticles()
+    {
+        if (lastHighlightedBlock != null)
+        {
+            lastHighlightedBlock.GetComponentInChildren<ParticleSystem>().Stop();
+        }
+    }
     private void BlockStats(RaycastHit2D hit)
     {
         float currentStaminaChance = Mathf.Clamp(Artefacts.staminachance, 0.0f, 1.0f);
@@ -206,7 +225,7 @@ public class MiningScript : MonoBehaviour
         int coinWorth = tdp.thisTile.coinWorth;
 
         //Check Chest First
-        if(tdp.thisTile.tileType == TileTypes.Loot)
+        if (tdp.thisTile.tileType == TileTypes.Loot)
         {
             hit.collider.gameObject.GetComponent<LootBag>().RollLoot();
             return;
@@ -255,7 +274,7 @@ public class MiningScript : MonoBehaviour
             else if (tdp.thisTile.tileType == TileTypes.Ore)
             {
                 Inventory.Ores++;
-                EndSCene.TotalOres ++;
+                EndSCene.TotalOres++;
                 Inventory.Orescoins += coinWorth;
                 EndSCene.Totalcoins += coinWorth * 2;
             }
@@ -275,11 +294,19 @@ public class MiningScript : MonoBehaviour
         hit.collider.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         hit.collider.gameObject.GetComponent<SpriteRenderer>().enabled = false;
 
-        if(hit.collider.gameObject.GetComponentInChildren<Light2D>() != null)
+        if (hit.collider.gameObject.GetComponentInChildren<Light2D>() != null)
         {
             hit.collider.gameObject.GetComponentInChildren<Light2D>().enabled = false;
         }
         yield return new WaitForSeconds(2f);
         Destroy(hit.collider.gameObject);
+    }
+
+    private void StopParticles(GameObject block)
+    {
+        if (block != null)
+        {
+            block.GetComponentInChildren<ParticleSystem>().Stop();
+        }
     }
 }
