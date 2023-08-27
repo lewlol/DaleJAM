@@ -20,3 +20,4 @@ MonoBehaviour:
   breakingpower: 0
   coinWorth: 3
   breakingParticlesColor: {r: 0.084905684, g: 0.084905684, b: 0.084905684, a: 1}
+  miningSound: {fileID: 8300000, guid: de2008a163ec76a468fa64c9d039da99, type: 3}

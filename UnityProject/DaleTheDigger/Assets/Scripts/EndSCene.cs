@@ -17,9 +17,10 @@ public class EndSCene : MonoBehaviour
     public static int TotalOres;
     public static int TotalGems;
     public static int Totalcoins;
-        
 
 
+    public GameObject fadeIn;
+    public GameObject fadeOut;
 
     void Start()
     {
@@ -51,6 +52,17 @@ public class EndSCene : MonoBehaviour
 
     public void ended()
     {
+        StartCoroutine(fading());
+    }
+
+    IEnumerator fading()
+    {
+        fadeOut.SetActive(true);
+        yield return new WaitForSeconds(1.4f);
+        fadeIn.SetActive(false);
+        yield return new WaitForSeconds(0.1f);
+        fadeIn.SetActive(true);
+        fadeOut.SetActive(false);
         SceneManager.LoadScene(0);
     }
 

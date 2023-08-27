@@ -12,6 +12,9 @@ public class Death : MonoBehaviour
     public HealthStamUI hs;
 
     public GameObject indicatorText;
+
+    public GameObject fadeIn;
+    public GameObject fadeOut;
     public void Respawn()
     {
         StartCoroutine(Died());
@@ -28,10 +31,17 @@ public class Death : MonoBehaviour
         indicatorText.GetComponent<TextMeshProUGUI>().text = "You Died!";
         Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         yield return new WaitForSeconds(5);
+        fadeOut.SetActive(true);
+        yield return new WaitForSeconds(1.4f);
+        fadeIn.SetActive(false);
+        yield return new WaitForSeconds(0.1f);
+        fadeIn.SetActive(true);
+        fadeOut.SetActive(false);
         //clears inventory
         Inventory.deathinventory();
         otherui.SetActive(false);
         sleepui.SetActive(true);
         Player.transform.position = DeathSpawnPoint.transform.position;
+        indicatorText.GetComponent<TextMeshProUGUI>().text = null;
     }
 }

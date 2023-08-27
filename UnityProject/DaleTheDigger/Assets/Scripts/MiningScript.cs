@@ -3,6 +3,7 @@ using TMPro;
 using System.Collections;
 using UnityEngine.Rendering.Universal;
 using Unity.Burst.CompilerServices;
+using UnityEngine.Rendering;
 
 public class MiningScript : MonoBehaviour
 {
@@ -29,6 +30,8 @@ public class MiningScript : MonoBehaviour
     private GameObject previousHighlightedBlock; 
 
     public LayerMask ignoreRaycast;
+
+    public AudioSource mine;
     private void Start()
     {
         originalPosition = Vector3.zero; // Initialize originalPosition
@@ -81,6 +84,8 @@ public class MiningScript : MonoBehaviour
                             hit.collider.gameObject.GetComponentInChildren<ParticleSystem>().Play();
                         }
 
+                        if (!mine.isPlaying)
+                            PlayMiningSound(hit.collider.gameObject.GetComponent<TileDataPlaceholder>().thisTile.miningSound);
                         // Apply shaking effect while mining
                         float shakeMagnitude = 0.05f; // Adjust the magnitude as needed
                         shakeOffset = Random.insideUnitCircle * shakeMagnitude;
@@ -308,5 +313,11 @@ public class MiningScript : MonoBehaviour
         {
             block.GetComponentInChildren<ParticleSystem>().Stop();
         }
+    }
+
+    public void PlayMiningSound(AudioClip miningSound)
+    {
+        mine.clip = miningSound;
+        mine.Play();
     }
 }

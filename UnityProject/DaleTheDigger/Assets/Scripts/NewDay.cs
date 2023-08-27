@@ -25,6 +25,9 @@ public class NewDay : MonoBehaviour
 
     public HealthStamUI hs;
     bool inRadius;
+
+    public GameObject fadeIn;
+    public GameObject fadeOut;
     void Start()
     {
         day = 1;
@@ -80,6 +83,15 @@ public class NewDay : MonoBehaviour
 
     public void sleep()
     {
+        StartCoroutine(Fading());
+    }
+
+    IEnumerator Fading()
+    {
+        fadeOut.SetActive(true);
+        yield return new WaitForSeconds(1.4f);
+        fadeIn.SetActive(false);
+
         //whatever code to regenerate world
         day++;
         Inventory.newday();
@@ -95,8 +107,8 @@ public class NewDay : MonoBehaviour
         WorldGeneration wg = GameObject.Find("WorldGenerationManager").GetComponent<WorldGeneration>();
         worldGen.GetComponent<DayCounter>().AddDayCount(day.ToString());
         //Delete Previous World Gen
-        foreach(GameObject tile in wg.tiles)
-        {     
+        foreach (GameObject tile in wg.tiles)
+        {
             Destroy(tile);
         }
         wg.NewDay();
@@ -105,5 +117,10 @@ public class NewDay : MonoBehaviour
 
         Player.GetComponent<CapsuleCollider2D>().enabled = true;
         Player.GetComponent<SpriteRenderer>().enabled = true;
+
+        yield return new WaitForSeconds(0.5f);
+        fadeIn.SetActive(true);
+        fadeOut.SetActive(false);
+
     }
 }

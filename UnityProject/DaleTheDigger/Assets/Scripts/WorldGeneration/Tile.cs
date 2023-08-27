@@ -24,4 +24,5 @@ public class Tile : ScriptableObject
     public int breakingpower;
     public int coinWorth;
     public Color breakingParticlesColor;
+    public AudioClip miningSound;
 }
