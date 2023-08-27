@@ -22,7 +22,7 @@ public class MiningScript : MonoBehaviour
     private Vector3 originalPosition; // Store the original position of the block
     private Vector3 shakeOffset; // Store the current shake offset
 
-    public Texture2D pickaxecorsortexture;
+    //public Texture2D pickaxecorsortexture;
 
     public MeshTextAppear tma;
     public HealthStamUI hs;
@@ -180,7 +180,7 @@ public class MiningScript : MonoBehaviour
             childSpriteRenderer.enabled = true;
 
             // Change the cursor to the custom texture
-            Cursor.SetCursor(pickaxecorsortexture, Vector2.zero, CursorMode.Auto);
+           // Cursor.SetCursor(pickaxecorsortexture, Vector2.zero, CursorMode.Auto);
 
             previousHighlightedBlock = block; // Update the previously highlighted block
         }
@@ -201,7 +201,7 @@ public class MiningScript : MonoBehaviour
             childSpriteRenderer.enabled = false;
 
             // Change the cursor back to the default
-            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+           // Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 
             lastHighlightedBlock = null;
             previousHighlightedBlock = null; // Reset the previous highlighted block
