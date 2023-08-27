@@ -34,6 +34,10 @@ public class BombScript : MonoBehaviour
 
     private void Update()
     {
+
+      
+
+
         if (Input.GetMouseButtonDown(1) && canThrowBomb && Inventory.bombs > 0) // Check if the player has bombs and cooldown is over
         {
             ThrowBomb();
