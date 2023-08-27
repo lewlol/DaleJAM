@@ -286,7 +286,7 @@ public class MiningScript : MonoBehaviour
             else if (tdp.thisTile.tileType == TileTypes.Gemstone)
             {
                 Inventory.Gemstones++;
-                EndSCene.TotalGems += 2;
+                EndSCene.TotalGems ++ ;
                 Inventory.Gemstonecoins += coinWorth;
                 EndSCene.Totalcoins += coinWorth * 2;
             }
