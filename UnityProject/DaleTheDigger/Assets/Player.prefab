@@ -144,6 +144,7 @@ MonoBehaviour:
   health: 0
   damagedPlayer: {r: 0, g: 0, b: 0, a: 0}
   walking: {fileID: 0}
+  playerHurt: {fileID: 0}
 --- !u!114 &3569117739720073806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,6 +164,7 @@ MonoBehaviour:
   ignoreRaycast:
     serializedVersion: 2
     m_Bits: 256
+  mine: {fileID: 0}
 --- !u!114 &1085396894377041161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,6 +257,8 @@ MonoBehaviour:
   sleepui: {fileID: 0}
   hs: {fileID: 0}
   indicatorText: {fileID: 0}
+  fadeIn: {fileID: 0}
+  fadeOut: {fileID: 0}
 --- !u!114 &-8347216537957942191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,7 +292,9 @@ MonoBehaviour:
   mta: {fileID: 0}
   bombCount: {fileID: 0}
   particles: {fileID: 0}
-  throwCooldown: 3
+  throwCooldown: 2
+  shakeMagnitude: 0.1
+  shakeDuration: 0.2
 --- !u!82 &27841817694704489
 AudioSource:
   m_ObjectHideFlags: 0

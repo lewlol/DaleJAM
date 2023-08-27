@@ -19728,7 +19728,9 @@ MonoBehaviour:
   baseTile: {fileID: 2606007025550641644, guid: 5562791dfddf6954fb25466f3c793f92, type: 3}
   lootTile: {fileID: 5601386728987651832, guid: 65049e3cd0065ac4c8d3d7fc7112e4d5, type: 3}
   gemstoneTile: {fileID: 5516841342592421202, guid: 70c3bb0f63db0da4faaa06c7a42b77d9, type: 3}
-  trapTile: {fileID: 4073976304410261553, guid: 0a6277b3d84cbc044bd1234debad7d15, type: 3}
+  trapTile:
+  - {fileID: 3034329904273210305, guid: e3b6094fc4f39734da55b9d5817d093b, type: 3}
+  - {fileID: 4073976304410261553, guid: 0a6277b3d84cbc044bd1234debad7d15, type: 3}
   worldLength: 21
   worldHeight: 300
   noiseTexture: {fileID: 0}
@@ -20956,6 +20958,10 @@ PrefabInstance:
       propertyPath: spawnpoint
       value: 
       objectReference: {fileID: 235641257}
+    - target: {fileID: 27841817694704489, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
+      propertyPath: m_Volume
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 27841817694704489, guid: 6bc70805bfc50d641ad92633bb790c86, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -36012,7 +36018,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1661867641280539903, guid: e192fb0e7dc3df3468048666cf597194, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5934016598074507878, guid: e192fb0e7dc3df3468048666cf597194, type: 3}
       propertyPath: m_Enabled

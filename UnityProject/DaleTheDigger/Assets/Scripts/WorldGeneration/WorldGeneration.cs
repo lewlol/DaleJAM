@@ -14,7 +14,7 @@ public class WorldGeneration : MonoBehaviour
     public GameObject baseTile;
     public GameObject lootTile;
     public GameObject gemstoneTile;
-    public GameObject trapTile;
+    public GameObject[] trapTile;
     int gemSprite;
     public int worldLength;
     public int worldHeight;
@@ -279,7 +279,8 @@ public class WorldGeneration : MonoBehaviour
                         int ran = Random.Range(0, 201);
                         if (ran > 198) //1% Chance
                         {
-                            GameObject trap = Instantiate(trapTile, spawnPosition, Quaternion.identity);
+                            int t = Random.Range(0, trapTile.Length);
+                            GameObject trap = Instantiate(trapTile[t], spawnPosition, Quaternion.identity);
                             tiles.Add(trap);
                             trap.transform.parent = gameObject.transform;
                             blockedSpawns.Add(new Vector2(x, y));
